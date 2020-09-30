@@ -1,6 +1,6 @@
 {
-  "name": "@stoms/nuxt-tailwind-components",
-  "version": "0.0.5",
+  "name": "@teamfunction/luke-components",
+  "version": "0.0.1",
   "description": "Tailwind UI components built with Vue",
   "main": "src/nuxt.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StephenMarkToms/nuxt-tailwind-components.git"
+    "url": "git+https://github.com/GroupTen/Luke-Components.git"
   },
   "keywords": [
     "tailwind",
@@ -21,7 +21,7 @@
   "author": "Stephen Toms",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/StephenMarkToms/nuxt-tailwind-components/issues"
+    "url": "https://github.com/GroupTen/Luke-Components/issues"
   },
-  "homepage": "https://github.com/StephenMarkToms/nuxt-tailwind-components#readme"
+  "homepage": "https://github.com/GroupTen/Luke-Components/#readme"
 }
