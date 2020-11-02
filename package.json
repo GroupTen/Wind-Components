@@ -1,6 +1,6 @@
 {
   "name": "@teamfunction/luke-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tailwind UI components built with Vue",
   "main": "src/nuxt.js",
   "scripts": {

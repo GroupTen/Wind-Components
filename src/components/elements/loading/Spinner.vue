@@ -1,8 +1,29 @@
 <template>
-  <div
-    class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-20 w-20"
-  ></div>
+  <div :class="classes"></div>
 </template>
+
+<script>
+const classes = {
+  primary:
+    'loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-20 w-20',
+  button:
+    'loader ease-linear rounded-full border-2 border-t-2 border-gray-200 h-5 w-5',
+}
+export default {
+  props: {
+    type: {
+      type: [String, Array],
+      required: false,
+      default: 'primary',
+    },
+  },
+  computed: {
+    classes() {
+      return classes[this.type]
+    },
+  },
+}
+</script>
 
 <style>
 .loader {

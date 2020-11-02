@@ -1,6 +1,9 @@
 <template>
-  <span class="mt-3 ml-3 inline-flex rounded-md shadow-sm sm:mt-0">
-    <div class="relative inline-block text-left" @click="isActive = !isActive">
+  <div class="mt-3 inline-flex rounded-md shadow-sm sm:mt-0">
+    <div
+      class="w-full relative inline-block text-left"
+      @click="isActive = !isActive"
+    >
       <slot />
       <div
         :class="[
@@ -8,7 +11,7 @@
           { hidden: !isActive },
         ]"
       >
-        <div class="rounded-md bg-white shadow-xs">
+        <div class="rounded-md bg-white shadow-xs z-50 relative">
           <div
             role="menu"
             aria-orientation="vertical"
@@ -28,7 +31,7 @@
         </div>
       </div>
     </div>
-  </span>
+  </div>
 </template>
 <script>
 export default {

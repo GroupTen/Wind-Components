@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      class="relative border-b border-primary-800"
-      @click="isExpanded = !isExpanded"
-    >
+    <div class="relative" @click="isExpanded = !isExpanded">
       <svg
         :class="{
           'text-gray-400 rotate-90': isExpanded,
