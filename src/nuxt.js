@@ -5,39 +5,39 @@ export default function () {
     dirs.push(
       {
         path: join(__dirname, 'components/elements/buttons'),
-        prefix: 'L-Buttons',
+        prefix: 'W-Buttons',
       },
       {
         path: join(__dirname, 'components/elements/cards'),
-        prefix: 'L-Cards',
+        prefix: 'W-Cards',
       },
       {
         path: join(__dirname, 'components/elements/feedback'),
-        prefix: 'L-Feedback',
+        prefix: 'W-Feedback',
       },
       {
         path: join(__dirname, 'components/elements/headings'),
-        prefix: 'L-Headings',
+        prefix: 'W-Headings',
       },
       {
         path: join(__dirname, 'components/elements/links'),
-        prefix: 'L-Links',
+        prefix: 'W-Links',
       },
       {
         path: join(__dirname, 'components/elements/loading'),
-        prefix: 'L-Loading',
+        prefix: 'W-Loading',
       },
       {
         path: join(__dirname, 'components/elements/slide-overs'),
-        prefix: 'L-Slideovers',
+        prefix: 'W-Slideovers',
       },
       {
         path: join(__dirname, 'components/elements/steps'),
-        prefix: 'L-Steps',
+        prefix: 'W-Steps',
       },
       {
         path: join(__dirname, 'components/elements/tabs'),
-        prefix: 'L-Tabs',
+        prefix: 'W-Tabs',
       }
     )
   })

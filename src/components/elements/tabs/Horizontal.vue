@@ -22,7 +22,7 @@
           :class="$attrs.alignment != null ? $attrs.alignment : null"
           class="-mb-px flex px-5 lg:px-8"
         >
-          <LButtonsBase
+          <WButtonsBase
             v-for="(tab, index) in tabs"
             :key="index"
             :type="currentTab === tab.name ? 'tabSelected' : 'tab'"
@@ -30,7 +30,7 @@
             @click.native="currentTab = tab.name"
           >
             {{ tab.name }}
-          </LButtonsBase>
+          </WButtonsBase>
         </nav>
       </div>
     </div>

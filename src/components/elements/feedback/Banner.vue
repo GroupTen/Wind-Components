@@ -9,7 +9,7 @@
           <slot />
         </div>
         <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3 text-white">
-          <LButtonsBase
+          <WButtonsBase
             type="neutral"
             icon="x-circle"
             @click.native="
