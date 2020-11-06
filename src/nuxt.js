@@ -38,7 +38,7 @@ export default function () {
       {
         path: join(__dirname, 'components/elements/tabs'),
         prefix: 'L-Tabs',
-      },
+      }
     )
   })
 }

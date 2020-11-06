@@ -51,7 +51,7 @@ export default {
       //   :type="[processingPayment ? 'primaryInverted' : 'primary']"
       //   @click.native="createPayment"
       // >
-      //   <LoadingSpinner type="button" class="mx-auto" />
+      //   <LLoadingSpinner type="button" class="mx-auto" />
       // </ButtonsBase>
 
       if (Array.isArray(this.type)) {
@@ -64,7 +64,7 @@ export default {
       //   :type="{ primaryInverted: processingPayment }"
       //   @click.native="createPayment"
       // >
-      //   <LoadingSpinner type="button" class="mx-auto" />
+      //   <LLoadingSpinner type="button" class="mx-auto" />
       // </ButtonsBase>
 
       if (typeof this.type === 'object') {
