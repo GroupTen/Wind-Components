@@ -1,5 +1,5 @@
 <template>
-  <div :class="['fixed z-10 inset-0 overflow-y-auto', { hidden: isHidden }]">
+  <div :class="['fixed z-30 inset-0 overflow-y-auto', { hidden: isHidden }]">
     <div
       :class="[
         expanded ? 'ml-64' : 'ml-16',
