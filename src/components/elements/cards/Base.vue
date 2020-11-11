@@ -39,7 +39,8 @@ export default {
     },
     subHeading: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
     description: {
       type: String,
