@@ -33,12 +33,6 @@
   </div>
 </template>
 <script>
-const classes = {
-  primary:
-    'flex active:text-primary-700 font-medium text-primary-600 hover:text-primary-800 transition duration-150 ease-in-out h-full',
-  danger:
-    'flex active:text-danger-500 font-medium text-danger-500 hover:text-danger-600 transition duration-150 ease-in-out h-full',
-}
 export default {
   props: {
     type: {
@@ -69,7 +63,7 @@ export default {
   },
   computed: {
     classes() {
-      return classes[this.type]
+      return this.$wind.links.base[this.type]
     },
     svgComponent() {
       return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
