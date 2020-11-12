@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3 inline-flex rounded-md shadow-sm sm:mt-0">
+  <div class="mt-3 inline-flex rounded-md shadow-sm sm:mt-0 w-full">
     <div
       class="w-full relative inline-block text-left"
       @click="isActive = !isActive"
