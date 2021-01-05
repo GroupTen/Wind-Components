@@ -4,7 +4,7 @@
       ><component
         :is="svgComponent"
         if="svgComponent"
-        class="mx-1 w-5 h-5 my-auto"
+        class="mr-1 w-5 h-5 my-auto"
     /></slot>
     <slot />
   </button>
