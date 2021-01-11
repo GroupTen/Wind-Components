@@ -61,7 +61,10 @@
             }"
             class="text-sm leading-5 font-medium"
           >
+            <!-- <span>
+
             {{ step.name }}
+            </span> -->
           </p>
         </div>
 

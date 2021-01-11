@@ -5,6 +5,7 @@
       rel="stylesheet"
     />
     <WLoadingSpinner />
+    this is a test commit
   </div>
 </template>
 <script>
