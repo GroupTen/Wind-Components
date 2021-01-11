@@ -2,14 +2,14 @@
   <div>
     <div class="sm:hidden">
       <select
-        v-model="currentTab"
+        v-model="value"
         aria-label="Selected tab"
         class="form-select block w-full"
       >
         <option
           v-for="(tab, index) in tabs"
           :key="index"
-          :selected="currentTab === tab.name"
+          :selected="value === tab.name"
           :value="tab.name"
         >
           {{ tab.name }}
@@ -25,9 +25,9 @@
           <WButtonsBase
             v-for="(tab, index) in tabs"
             :key="index"
-            :type="currentTab === tab.name ? 'tabSelected' : 'tab'"
+            :type="value === tab.name ? 'tabSelected' : 'tab'"
             :icon="tab.icon != null ? tab.icon : null"
-            @click.native="currentTab = tab.name"
+            @click.native="value = tab.name"
           >
             {{ tab.name }}
           </WButtonsBase>
