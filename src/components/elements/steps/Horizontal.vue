@@ -56,7 +56,7 @@
               'text-primary-600':
                 step.status === 'current' || step.status === 'complete',
             }"
-            class="text-sm leading-5 font-medium hidden lg:block"
+            class="text-sm leading-5 font-medium pr-14"
           >
             <span>
               {{ step.name }}
