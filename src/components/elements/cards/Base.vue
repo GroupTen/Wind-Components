@@ -17,7 +17,8 @@
       <div class="font-bold text-primary-900">{{ heading }}</div>
       <div class="text-primary-600 font-medium">{{ subHeading }}</div>
       <div class="mt-4 text-sm text-primary-900">
-        {{ description }}
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <span v-html="description"></span>
       </div>
       <div>
         <slot />
