@@ -29,7 +29,7 @@
           From: "translate-x-0"
           To: "translate-x-full"
       -->
-        <div class="relative w-screen max-w-3xl">
+        <div class="relative w-screen max-w-5xl">
           <!--
           Close button, show/hide based on slide-over state.
 
