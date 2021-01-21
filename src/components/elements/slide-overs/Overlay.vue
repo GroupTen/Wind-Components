@@ -36,7 +36,7 @@
           <div
             class="h-full flex flex-col space-y-6 bg-white shadow-xl overflow-y-auto"
           >
-            <header v-if="title" class="px-4 py-6 bg-primary-900 sm:px-6">
+            <header v-if="title" class="z-10px-4 py-6 bg-primary-900 sm:px-6">
               <div class="flex items-start justify-between space-x-3">
                 <div class="space-y-1">
                   <h2
