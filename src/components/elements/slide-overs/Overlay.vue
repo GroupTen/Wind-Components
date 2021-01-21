@@ -2,14 +2,14 @@
   <div v-if="open" class="fixed inset-0 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
       <div
-        class="animate__animated animate__fadeIn absolute inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
+        class="animate__animated animate__fadeIn animate__fast absolute inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
       ></div>
       <section
-        class="animate__animated animate__slideInRight absolute inset-y-0 right-0 pl-10 max-w-full flex"
+        class="animate__animated animate__slideInRight animate__fast absolute inset-y-0 right-0 pl-10 max-w-full flex"
       >
         <div class="relative w-screen max-w-5xl">
           <div
-            class="-ml-8 absolute animate__animated animate__delay-1s animate__fadeIn flex left-0 pr-2 sm:-ml-10 sm:pr-4 top-0"
+            class="-ml-8 absolute animate__animated animate__delay-1s animate__fast animate__fadeIn flex left-0 pr-2 sm:-ml-10 sm:pr-4 top-0"
           >
             <button
               aria-label="Close panel"
