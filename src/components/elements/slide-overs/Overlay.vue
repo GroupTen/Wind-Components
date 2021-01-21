@@ -1,46 +1,16 @@
 <template>
-  <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
   <div v-if="open" class="fixed inset-0 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
-      <!--
-      Background overlay, show/hide based on slide-over state.
-
-      Entering: "ease-in-out duration-500"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "ease-in-out duration-500"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
       <div
-        class="absolute inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
+        class="animate__animated animate__fadeIn absolute inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
       ></div>
-      <section class="absolute inset-y-0 right-0 pl-10 max-w-full flex">
-        <!--
-        Slide-over panel, show/hide based on slide-over state.
-
-        Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-          From: "translate-x-full"
-          To: "translate-x-0"
-        Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-          From: "translate-x-0"
-          To: "translate-x-full"
-      -->
+      <section
+        class="animate__animated animate__slideInRight absolute inset-y-0 right-0 pl-10 max-w-full flex"
+      >
         <div class="relative w-screen max-w-5xl">
-          <!--
-          Close button, show/hide based on slide-over state.
-
-          Entering: "ease-in-out duration-500"
-            From: "opacity-0"
-            To: "opacity-100"
-          Leaving: "ease-in-out duration-500"
-            From: "opacity-100"
-            To: "opacity-0"
-        -->
-          <div class="absolute top-0 left-0 -ml-8 pr-2 flex sm:-ml-10 sm:pr-4">
+          <div
+            class="-ml-8 absolute animate__animated animate__delay-1s animate__fadeIn flex left-0 pr-2 sm:-ml-10 sm:pr-4 top-0"
+          >
             <button
               aria-label="Close panel"
               class="mt-5 text-gray-300 hover:text-white transition ease-in-out duration-150"

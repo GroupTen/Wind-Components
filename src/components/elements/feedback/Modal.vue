@@ -2,7 +2,6 @@
   <div :class="['fixed z-30 inset-0 overflow-y-auto', { hidden: isHidden }]">
     <div
       :class="[
-        expanded ? 'ml-64' : 'ml-16',
         'flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0',
       ]"
     >
@@ -14,13 +13,17 @@
           }
         "
       >
-        <div class="absolute inset-0 bg-gray-800 opacity-75"></div>
+        <div class="absolute inset-0 opacity-75 -ml-8 absolute">
+          <div
+            class="animate__animated animate__fadeIn bg-gray-800 w-full h-full"
+          ></div>
+        </div>
       </div>
 
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span
       >&#8203;
       <div
-        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:p-6"
+        class="align-bottom animate__animated animate__faster animate__zoomIn bg-white inline-block overflow-hidden pb-4 pt-5 px-4 rounded-lg shadow-xl sm:align-middle sm:my-8 sm:p-6 text-left transform transition-all"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-headline"
