@@ -7,7 +7,12 @@
     <ul
       class="border border-gray-300 rounded-md divide-y divide-gray-300 md:flex justify-around md:divide-y-0"
     >
-      <li v-for="(step, index) in steps" :key="index" class="relative">
+      <li
+        v-for="(step, index) in steps"
+        :key="index"
+        class="relative"
+        @click="changeStep(step)"
+      >
         <!-- Current Step -->
         <div
           class="px-6 py-4 flex items-center text-sm leading-5 font-medium space-x-4 text-gray-300"
@@ -51,12 +56,11 @@
           </div>
 
           <p
-            v-if="steps.length < 5"
             :class="{
               'text-primary-600':
                 step.status === 'current' || step.status === 'complete',
             }"
-            class="text-sm leading-5 font-medium pr-14"
+            class="text-sm leading-5 font-medium pr-8"
           >
             <span>
               {{ step.name }}
@@ -96,6 +100,11 @@ export default {
       default() {
         return []
       },
+    },
+  },
+  methods: {
+    changeStep(step) {
+      this.$emit('stepsUpdated', step)
     },
   },
 }
