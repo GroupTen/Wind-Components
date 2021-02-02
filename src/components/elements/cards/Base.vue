@@ -36,7 +36,8 @@ export default {
     },
     heading: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
     subHeading: {
       type: String,
@@ -45,7 +46,8 @@ export default {
     },
     description: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
   },
 }
