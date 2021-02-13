@@ -34,11 +34,11 @@
             </button>
           </div>
           <div
-            class="h-full flex flex-col space-y-6 bg-white shadow-xl overflow-y-auto"
+            class="h-full flex flex-col space-y-2 bg-white shadow-xl overflow-y-auto"
           >
             <header v-if="title" class="z-10px-4 py-6 bg-primary-900 sm:px-6">
               <div class="flex items-start justify-between space-x-3">
-                <div class="space-y-1">
+                <div class="space-y-1 w-11/12">
                   <h2
                     class="text-lg leading-7 font-medium text-white font-bold text-white"
                   >
@@ -48,7 +48,11 @@
                     Get started by filling in the information below to create
                     your new project.
                   </p>
+                  <p v-if="caption" class="text-sm text-white leading-5">
+                    {{ caption }}
+                  </p>
                 </div>
+                <slot name="headerActions"></slot>
               </div>
             </header>
             <div class="relative flex-1">
@@ -69,6 +73,11 @@ export default {
       default: null,
     },
     description: {
+      type: String,
+      require: false,
+      default: null,
+    },
+    caption: {
       type: String,
       require: false,
       default: null,
