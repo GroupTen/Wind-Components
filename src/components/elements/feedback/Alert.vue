@@ -3,6 +3,7 @@
     :class="[
       'transition transform fixed z-30 bottom-0 inset-x-0 pb-2 sm:pb-5 opacity-0 scale-100 translate-y-0 ease-out duration-500',
       { 'opacity-100': visible },
+      { hidden: !visible },
     ]"
   >
     <div
