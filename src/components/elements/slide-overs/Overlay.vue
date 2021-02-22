@@ -91,6 +91,9 @@ export default {
   methods: {
     toggleOpen() {
       this.open = !this.open
+      if (!this.open) {
+        this.$emit('dismiss')
+      }
     },
   },
 }
