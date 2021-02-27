@@ -65,7 +65,7 @@
             <span>
               {{ step.name }}
             </span>
-            <span class="block" v-if="step.caption">{{ step.caption }}</span>
+            <span v-if="step.caption" class="block">{{ step.caption }}</span>
           </p>
         </div>
 
