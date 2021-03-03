@@ -23,7 +23,7 @@
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span
       >&#8203;
       <div
-        class="align-bottom animate__animated animate__faster animate__zoomIn bg-white inline-block overflow-hidden pb-4 pt-5 px-4 rounded-lg shadow-xl sm:align-middle sm:my-8 sm:p-6 text-left transform transition-all"
+        class="align-bottom animate__animated animate__faster animate__zoomIn bg-white inline-block pb-4 pt-5 px-4 rounded-lg shadow-xl sm:align-middle sm:my-8 sm:p-6 text-left transform transition-all"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-headline"
