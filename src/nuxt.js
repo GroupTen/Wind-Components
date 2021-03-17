@@ -38,6 +38,10 @@ export default function () {
       {
         path: join(__dirname, 'components/elements/tabs'),
         prefix: 'W-Tabs',
+      },
+      {
+        path: join(__dirname, 'components/elements/icons'),
+        prefix: 'W-Icons',
       }
     )
   })
