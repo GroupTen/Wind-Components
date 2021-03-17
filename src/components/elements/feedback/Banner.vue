@@ -5,7 +5,7 @@
     <div class="max-w-screen-xl mx-auto py-1 px-3 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between flex-wrap">
         <div class="w-0 flex-1 items-center">
-          {{ message }}
+          <span v-html="message"></span>
           <slot />
         </div>
         <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3 text-white">
