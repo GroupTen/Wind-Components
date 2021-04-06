@@ -1,9 +1,8 @@
 <template>
   <component
     :is="svgComponent"
-    :class="classes"
     if="svgComponent"
-    class="mx-1 w-5 h-5 my-auto"
+    :class="[type == null ? 'mx-1 w-5 h-5 my-auto' : classes]"
   />
 </template>
 <script>
@@ -12,7 +11,7 @@ export default {
     type: {
       type: [String, Array, Object],
       required: false,
-      default: 'primary',
+      default: null,
     },
     icon: {
       type: [String, Array, Object],
