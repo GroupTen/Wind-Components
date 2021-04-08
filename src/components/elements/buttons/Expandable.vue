@@ -20,9 +20,22 @@
 </template>
 <script>
 export default {
+  props: {
+    expanded: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
   data() {
     return {
       isExpanded: false,
+    }
+  },
+  // expand by default if the prop is set
+  mounted() {
+    if (this.expanded) {
+      this.isExpanded = true
     }
   },
 }
