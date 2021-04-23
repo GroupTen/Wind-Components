@@ -8,7 +8,10 @@
           <span v-html="message"></span>
           <slot />
         </div>
-        <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3 text-white">
+        <div
+          v-if="canDismiss"
+          class="order-2 flex-shrink-0 sm:order-3 sm:ml-3 text-white"
+        >
           <WButtonsBase
             type="neutral"
             icon="x-circle"
@@ -25,6 +28,13 @@
 import { mapState } from 'vuex'
 
 export default {
+  props: {
+    canDismiss: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+  },
   computed: {
     ...mapState({
       visible: (state) => state.notifications.banner.visible,
