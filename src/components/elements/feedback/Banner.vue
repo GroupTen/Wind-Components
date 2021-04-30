@@ -4,8 +4,20 @@
   >
     <div class="max-w-screen-xl mx-auto py-1 px-3 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between flex-wrap">
-        <div class="w-0 flex-1 items-center">
-          <span v-html="message"></span>
+        <div class="w-0 flex-1 items-center flex">
+          <div v-html="message"></div>
+          <div v-if="actionText">
+            <WButtonsBase
+              type="light"
+              @click.native="
+                $store.dispatch(
+                  'notifications/setBannerActionTriggered',
+                  !actionStatus
+                )
+              "
+              >{{ actionText }}</WButtonsBase
+            >
+          </div>
           <slot />
         </div>
         <div
@@ -37,6 +49,8 @@ export default {
   },
   computed: {
     ...mapState({
+      actionText: (state) => state.notifications.banner.cta.text,
+      actionStatus: (state) => state.notifications.banner.cta.triggered,
       visible: (state) => state.notifications.banner.visible,
       message: (state) => state.notifications.banner.message,
     }),
