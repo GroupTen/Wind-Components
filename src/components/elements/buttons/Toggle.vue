@@ -1,5 +1,5 @@
 <template>
-  <div @click="isActive = !isActive">
+  <div @click=";(isActive = !isActive), analytics()">
     <span
       :class="[
         isActive === true || isActive === '' ? 'bg-primary-600' : 'bg-gray-200',
@@ -84,6 +84,34 @@ export default {
   },
   created() {
     this.isActive = this.value
+  },
+  methods: {
+    analytics() {
+      if (
+        process.client &&
+        this?.$wind?.analytics &&
+        this.$wind.analytics === true
+      ) {
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+          event: 'windEvent',
+          category: 'Button',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
+      if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
+        // eslint-disable-next-line no-console
+        console.log({
+          event: 'windEvent',
+          category: 'Button',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
+    },
   },
 }
 </script>

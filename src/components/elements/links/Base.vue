@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="analytics()">
     <nuxt-link v-if="target === ''" :to="link" :class="classes">
       <slot v-if="iconPosition === 'left'" name="icon"
         ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
@@ -55,6 +55,34 @@ export default {
     },
     svgComponent() {
       return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+    },
+  },
+  methods: {
+    analytics() {
+      if (
+        process.client &&
+        this?.$wind?.analytics &&
+        this.$wind.analytics === true
+      ) {
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+          event: 'windEvent',
+          category: 'Link',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
+      if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
+        // eslint-disable-next-line no-console
+        console.log({
+          event: 'windEvent',
+          category: 'Link',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
     },
   },
 }

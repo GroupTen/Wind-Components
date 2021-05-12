@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="classes">
+  <button type="button" :class="classes" @click="analytics()">
     <slot name="icon"
       ><component
         :is="svgComponent"
@@ -58,6 +58,34 @@ export default {
         return this.icon[0] && require(`@/static/icons/${this.icon}.svg?inline`)
       }
       return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+    },
+  },
+  methods: {
+    analytics() {
+      if (
+        process.client &&
+        this?.$wind?.analytics &&
+        this.$wind.analytics === true
+      ) {
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+          event: 'windEvent',
+          category: 'Button',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
+      if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
+        // eslint-disable-next-line no-console
+        console.log({
+          event: 'windEvent',
+          category: 'Button',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
     },
   },
 }

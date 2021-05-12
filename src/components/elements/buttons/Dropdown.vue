@@ -1,5 +1,8 @@
 <template>
-  <div class="mt-3 inline-flex rounded-md shadow-sm sm:mt-0 w-full">
+  <div
+    class="mt-3 inline-flex rounded-md shadow-sm sm:mt-0 w-full"
+    @click="analytics()"
+  >
     <div
       class="w-full relative inline-block text-left"
       @click="isActive = !isActive"
@@ -47,6 +50,36 @@ export default {
     return {
       isActive: false,
     }
+  },
+  methods: {
+    methods: {
+      analytics() {
+        if (
+          process.client &&
+          this?.$wind?.analytics &&
+          this.$wind.analytics === true
+        ) {
+          window.dataLayer = window.dataLayer || []
+          window.dataLayer.push({
+            event: 'windEvent',
+            category: 'Button',
+            action: 'Click',
+            label: this.$el.textContent,
+            value: window.location.pathname,
+          })
+        }
+        if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
+          // eslint-disable-next-line no-console
+          console.log({
+            event: 'windEvent',
+            category: 'Button',
+            action: 'Click',
+            label: this.$el.textContent,
+            value: window.location.pathname,
+          })
+        }
+      },
+    },
   },
 }
 </script>

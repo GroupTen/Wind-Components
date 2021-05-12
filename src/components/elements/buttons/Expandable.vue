@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="analytics()">
     <div class="relative" @click="isExpanded = !isExpanded">
       <svg
         :class="{
@@ -37,6 +37,34 @@ export default {
     if (this.expanded) {
       this.isExpanded = true
     }
+  },
+  methods: {
+    analytics() {
+      if (
+        process.client &&
+        this?.$wind?.analytics &&
+        this.$wind.analytics === true
+      ) {
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+          event: 'windEvent',
+          category: 'Button',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
+      if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
+        // eslint-disable-next-line no-console
+        console.log({
+          event: 'windEvent',
+          category: 'Button',
+          action: 'Click',
+          label: this.$el.textContent,
+          value: window.location.pathname,
+        })
+      }
+    },
   },
 }
 </script>
