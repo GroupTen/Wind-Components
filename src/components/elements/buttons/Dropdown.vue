@@ -62,20 +62,18 @@ export default {
           window.dataLayer = window.dataLayer || []
           window.dataLayer.push({
             event: 'windEvent',
-            category: 'Button',
-            action: 'Click',
-            label: this.$el.textContent,
-            value: window.location.pathname,
+            category: 'Button click',
+            action: this.$el.textContent,
+            label: window.location.pathname,
           })
         }
         if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
           // eslint-disable-next-line no-console
           console.log({
             event: 'windEvent',
-            category: 'Button',
-            action: 'Click',
-            label: this.$el.textContent,
-            value: window.location.pathname,
+            category: 'Button click',
+            action: this.$el.textContent,
+            label: window.location.pathname,
           })
         }
       },
