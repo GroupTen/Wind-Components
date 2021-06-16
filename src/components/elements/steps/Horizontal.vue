@@ -10,7 +10,7 @@
       <li
         v-for="(step, index) in steps"
         :key="index"
-        class="relative"
+        class="relative w-full"
         @click="changeStep(step)"
       >
         <!-- Current Step -->
