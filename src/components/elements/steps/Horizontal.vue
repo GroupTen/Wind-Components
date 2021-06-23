@@ -46,10 +46,11 @@
             ]"
           >
             <p
-              :class="{
-                'text-primary-600 my-auto pt-2':
-                  step.status === 'current' || step.status === 'complete',
-              }"
+              :class="[
+                (step.status === 'current' || step.status === 'complete') &&
+                  'text-primary-600',
+                'my-auto pt-2',
+              ]"
             >
               0{{ index + 1 }}
             </p>
