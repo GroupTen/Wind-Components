@@ -10,7 +10,7 @@
       <li
         v-for="(step, index) in steps"
         :key="index"
-        class="relative"
+        class="relative w-full"
         @click="changeStep(step)"
       >
         <!-- Current Step -->
@@ -38,7 +38,7 @@
           <div
             v-else
             :class="[
-              'flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 rounded-full',
+              'flex-shrink-0 w-10 h-10 flex justify-center border-2 rounded-full',
               {
                 'border-primary-600':
                   step.status === 'current' || step.status === 'complete',
@@ -46,21 +46,21 @@
             ]"
           >
             <p
-              :class="{
-                'text-primary-600':
-                  step.status === 'current' || step.status === 'complete',
-              }"
+              :class="[
+                (step.status === 'current' || step.status === 'complete') &&
+                  'text-primary-600',
+                'my-auto pt-2',
+              ]"
             >
               0{{ index + 1 }}
             </p>
           </div>
-
           <p
             :class="{
               'text-primary-600':
                 step.status === 'current' || step.status === 'complete',
             }"
-            class="text-sm leading-5 font-medium pr-8"
+            class="text-sm leading-5 font-medium pr-8 my-auto"
           >
             <span>
               {{ step.name }}
