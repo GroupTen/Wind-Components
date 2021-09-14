@@ -1,12 +1,18 @@
 <template>
   <button type="button" :class="classes" @click="analytics()">
-    <slot name="icon"
+    <slot v-if="iconPosition === 'left'" name="icon"
       ><component
         :is="svgComponent"
         if="svgComponent"
         class="mx-1 w-5 h-5 my-auto"
     /></slot>
     <slot />
+    <slot v-if="iconPosition === 'right'" name="icon"
+      ><component
+        :is="svgComponent"
+        if="svgComponent"
+        class="mx-1 w-5 h-5 my-auto"
+    /></slot>
   </button>
 </template>
 <script>
@@ -21,6 +27,11 @@ export default {
       type: [String, Array, Object],
       required: false,
       default: null,
+    },
+    iconPosition: {
+      type: String,
+      required: false,
+      default: 'left',
     },
   },
   computed: {
