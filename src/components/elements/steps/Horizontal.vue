@@ -5,7 +5,14 @@
 -->
   <nav>
     <ul
-      class="border border-gray-300 rounded-md divide-y divide-gray-300 md:flex justify-around md:divide-y-0"
+      class="
+        border border-gray-300
+        rounded-md
+        divide-y divide-gray-300
+        md:flex
+        justify-around
+        md:divide-y-0
+      "
     >
       <li
         v-for="(step, index) in steps"
@@ -15,11 +22,34 @@
       >
         <!-- Current Step -->
         <div
-          class="px-6 py-4 flex items-center text-sm leading-5 font-medium space-x-4 text-gray-300"
+          class="
+            px-6
+            py-4
+            flex
+            items-center
+            text-sm
+            leading-5
+            font-medium
+            space-x-4
+            text-gray-300
+          "
         >
           <div
             v-if="step.status === 'complete'"
-            class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
+            class="
+              flex-shrink-0
+              w-10
+              h-10
+              flex
+              items-center
+              justify-center
+              bg-primary-600
+              rounded-full
+              group-hover:bg-primary-800
+              transition
+              ease-in-out
+              duration-150
+            "
           >
             <svg
               class="w-6 h-6 text-white"
