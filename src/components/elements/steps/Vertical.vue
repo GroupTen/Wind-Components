@@ -14,7 +14,22 @@
           <div class="h-9 flex items-center">
             <span
               v-if="step.status === 'complete'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
+              class="
+                relative
+                z-10
+                w-8
+                h-8
+                flex
+                items-center
+                justify-center
+                bg-primary-600
+                rounded-full
+                group-hover:bg-primary-800
+                group-focus:bg-primary-800
+                transition
+                ease-in-out
+                duration-150
+              "
             >
               <svg
                 class="w-5 h-5 text-white"
@@ -31,26 +46,88 @@
             </span>
             <span
               v-else-if="step.status === 'current'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-primary-600 rounded-full"
+              class="
+                relative
+                z-10
+                w-8
+                h-8
+                flex
+                items-center
+                justify-center
+                bg-primary-600
+                rounded-full
+                group-hover:bg-primary-800
+                group-focus:bg-primary-800
+                transition
+                ease-in-out
+                duration-150
+              "
             >
-              <span class="h-2.5 w-2.5 bg-primary-600 rounded-full"></span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </span>
             <span
               v-else
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400 group-focus:border-gray-400 transition ease-in-out duration-150"
+              class="
+                relative
+                z-10
+                w-8
+                h-8
+                flex
+                items-center
+                justify-center
+                bg-white
+                border-2 border-gray-300
+                rounded-full
+                group-hover:border-gray-400
+                group-focus:border-gray-400
+                transition
+                ease-in-out
+                duration-150
+              "
             >
               <span
-                class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300 group-focus:bg-gray-300 transition ease-in-out duration-150"
+                class="
+                  h-2.5
+                  w-2.5
+                  bg-transparent
+                  rounded-full
+                  group-hover:bg-gray-300
+                  group-focus:bg-gray-300
+                  transition
+                  ease-in-out
+                  duration-150
+                "
               ></span>
             </span>
           </div>
           <div class="min-w-0 my-auto">
             <h3
-              class="text-xs leading-4 font-semibold uppercase tracking-wide text-gray-500"
+              :class="[
+                step.status === 'current'
+                  ? 'text-primary-900'
+                  : step.status === 'complete'
+                  ? 'text-primary-600'
+                  : 'text-primary-300',
+                'text-xs leading-4 font-semibold uppercase tracking-wide',
+              ]"
             >
               {{ step.name }}
             </h3>
-            <p v-if="step.description" class="text-sm leading-5 text-gray-500">
+            <p
+              v-if="step.description"
+              class="text-sm leading-5 text-primary-900 mt-2"
+            >
               <!-- eslint-disable-next-line vue/no-v-html -->
               <span v-html="step.description"></span>
             </p>
@@ -65,7 +142,22 @@
           <div class="h-9 flex items-center">
             <span
               v-if="step.status === 'complete'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
+              class="
+                relative
+                z-10
+                w-8
+                h-8
+                flex
+                items-center
+                justify-center
+                bg-primary-600
+                rounded-full
+                group-hover:bg-primary-800
+                group-focus:bg-primary-800
+                transition
+                ease-in-out
+                duration-150
+              "
             >
               <svg
                 class="w-5 h-5 text-white"
@@ -82,26 +174,88 @@
             </span>
             <span
               v-else-if="step.status === 'current'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-primary-600 rounded-full"
+              class="
+                relative
+                z-10
+                w-8
+                h-8
+                flex
+                items-center
+                justify-center
+                bg-primary-600
+                rounded-full
+                group-hover:bg-primary-800
+                group-focus:bg-primary-800
+                transition
+                ease-in-out
+                duration-150
+              "
             >
-              <span class="h-2.5 w-2.5 bg-primary-600 rounded-full"></span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </span>
             <span
               v-else
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400 group-focus:border-gray-400 transition ease-in-out duration-150"
+              class="
+                relative
+                z-10
+                w-8
+                h-8
+                flex
+                items-center
+                justify-center
+                bg-white
+                border-2 border-gray-300
+                rounded-full
+                group-hover:border-gray-400
+                group-focus:border-gray-400
+                transition
+                ease-in-out
+                duration-150
+              "
             >
               <span
-                class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300 group-focus:bg-gray-300 transition ease-in-out duration-150"
+                class="
+                  h-2.5
+                  w-2.5
+                  bg-transparent
+                  rounded-full
+                  group-hover:bg-gray-300
+                  group-focus:bg-gray-300
+                  transition
+                  ease-in-out
+                  duration-150
+                "
               ></span>
             </span>
           </div>
           <div class="min-w-0 my-auto">
             <h3
-              class="text-xs leading-4 font-semibold uppercase tracking-wide text-gray-500"
+              :class="[
+                step.status === 'current'
+                  ? 'text-primary-900'
+                  : step.status === 'complete'
+                  ? 'text-primary-600'
+                  : 'text-primary-300',
+                'text-xs leading-4 font-semibold uppercase tracking-wide',
+              ]"
             >
               {{ step.name }}
             </h3>
-            <p v-if="step.description" class="text-sm leading-5 text-gray-500">
+            <p
+              v-if="step.description"
+              class="text-sm leading-5 text-primary-900 mt-2"
+            >
               <!-- eslint-disable-next-line vue/no-v-html -->
               <span v-html="step.description"></span>
             </p>
