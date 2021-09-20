@@ -76,7 +76,7 @@
           >
             <p
               :class="[
-                step.status === 'current' || step.status === 'complete'
+                step.status === 'current'
                   ? 'text-primary-900'
                   : 'my-auto pt-2 text-primary-600',
               ]"
@@ -118,8 +118,7 @@
 
           <p
             :class="{
-              'text-primary-900':
-                step.status === 'current' || step.status === 'complete',
+              'text-primary-900': step.status === 'current',
             }"
             class="text-sm leading-5 font-medium pr-8 my-auto"
           >
