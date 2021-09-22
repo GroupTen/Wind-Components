@@ -6,7 +6,7 @@
   <nav>
     <ul
       class="
-        border border-primary-300
+        border-2 border-primary-300
         rounded-md
         divide-y divide-primary-300
         md:flex
@@ -42,8 +42,8 @@
             v-if="step.status === 'complete'"
             class="
               flex-shrink-0
-              w-10
-              h-10
+              w-12
+              h-12
               flex
               items-center
               justify-center
