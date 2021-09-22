@@ -23,7 +23,7 @@
         <!-- Current Step -->
         <div
           class="
-            px-6
+            px-2
             py-4
             flex
             md:flex-col
