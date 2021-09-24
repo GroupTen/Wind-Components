@@ -2,7 +2,7 @@
   <div :class="['fixed z-30 inset-0 overflow-y-auto', { hidden: isHidden }]">
     <div
       :class="[
-        'flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0',
+        'flex items-center justify-center min-h-screen p-6 text-center sm:block sm:p-0',
       ]"
     >
       <div
@@ -24,17 +24,14 @@
       >&#8203;
       <div
         class="
-          mx-4
           align-bottom
           animate__animated animate__faster animate__zoomIn
           bg-white
           inline-block
-          pb-4
-          pt-5
-          px-4
+          p-6
           rounded-lg
           shadow-xl
-          sm:align-middle sm:my-8 sm:p-6
+          sm:align-middle sm:my-8
           text-left
           transform
           transition-all
