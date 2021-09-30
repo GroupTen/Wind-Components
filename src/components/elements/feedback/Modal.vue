@@ -2,7 +2,7 @@
   <div :class="['fixed z-30 inset-0 overflow-y-auto', { hidden: isHidden }]">
     <div
       :class="[
-        'flex items-center justify-center min-h-screen p-6 text-center sm:block sm:p-0',
+        'flex items-center justify-center min-h-screen p-6 text-center sm:block',
       ]"
     >
       <div
@@ -35,6 +35,8 @@
           text-left
           transform
           transition-all
+          w-full
+          md:w-auto
         "
         role="dialog"
         aria-modal="true"
