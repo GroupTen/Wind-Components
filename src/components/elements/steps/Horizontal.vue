@@ -145,7 +145,6 @@
             <span v-if="step.caption" class="block">{{ step.caption }}</span>
           </p>
         </div>
-        ​
         <div
           :class="[
             'absolute top-0 right-0 h-full w-5 hidden md:block',
