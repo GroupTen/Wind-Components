@@ -16,18 +16,19 @@
           absolute
           inset-y-0
           right-0
-          pl-10
+          md:pl-10
           max-w-full
           flex
         "
       >
-        <div class="relative w-screen max-w-5xl">
+        <div class="relative w-screen md:max-w-2xl lg:max-w-3xl xl:max-w-5xl">
           <div
             class="
+              hidden
+              md:flex
               -ml-8
               absolute
               animate__animated animate__delay-1s animate__fast animate__fadeIn
-              flex
               left-0
               pr-2
               sm:-ml-10 sm:pr-4
@@ -66,9 +67,9 @@
           <div class="h-full flex flex-col bg-white shadow-xl overflow-y-auto">
             <header
               v-if="title"
-              class="z-10 p-4 md:px-6 md:pt-6 md:pb-2 bg-primary-900"
+              class="z-10 p-4 md:px-6 md:pt-6 md:pb-2 bg-primary-900 flex"
             >
-              <div class="flex items-start justify-between space-x-3">
+              <div class="flex flex-1 items-start justify-between space-x-3">
                 <div class="space-y-1 w-11/12">
                   <h2 class="text-lg leading-7 font-bold text-white">
                     {{ title }}
@@ -83,6 +84,36 @@
                 </div>
                 <slot name="headerActions"></slot>
               </div>
+              <button
+                aria-label="Close panel"
+                class="
+                  text-gray-300
+                  hover:text-white
+                  transition
+                  ease-in-out
+                  duration-150
+                  ml-auto
+                  block
+                  md:hidden
+                "
+                @click="toggleOpen"
+              >
+                <!-- Heroicon name: x -->
+                <svg
+                  class="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
             </header>
             <div class="relative flex-1 py-6">
               <slot name="content" />

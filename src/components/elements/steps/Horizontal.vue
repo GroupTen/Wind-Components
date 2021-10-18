@@ -42,8 +42,9 @@
             v-if="step.status === 'complete'"
             class="
               flex-shrink-0
-              w-12
-              h-12
+              w-10
+              h-10
+              md:w-12 md:h-12
               flex
               items-center
               justify-center
@@ -73,8 +74,8 @@
             v-else
             :class="[
               step.status === 'current' || step.status === 'complete'
-                ? 'flex-shrink-0 w-12 h-12 flex justify-center border-primary-600 rounded-full'
-                : 'flex-shrink-0 w-12 h-12 flex justify-center border-2 border-primary-600 rounded-full border-primary-600',
+                ? 'flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex justify-center border-primary-600 rounded-full'
+                : 'flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex justify-center border-2 rounded-full border-primary-600',
             ]"
           >
             <p
@@ -88,8 +89,9 @@
                 v-if="step.status === 'current'"
                 class="
                   flex-shrink-0
-                  w-12
-                  h-12
+                  w-10
+                  h-10
+                  md:w-12 md:h-12
                   flex
                   items-center
                   justify-center
@@ -103,7 +105,7 @@
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-white"
+                  class="h-4 w-4 md:h-6 md:w-6 text-white"
                   fill="none"
                   viewBox="0 0 22 22"
                   stroke="currentColor"
@@ -132,7 +134,8 @@
               lg:my-auto
               md:mt-2
               lg:mt-auto
-              text-center
+              text-left
+              md:text-center
               lg:text-left
             "
           >
@@ -142,7 +145,7 @@
             <span v-if="step.caption" class="block">{{ step.caption }}</span>
           </p>
         </div>
-
+        ​
         <div
           :class="[
             'absolute top-0 right-0 h-full w-5 hidden md:block',
