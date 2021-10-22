@@ -9,7 +9,7 @@
         {{ subHeading }}
       </p>
     </div>
-    <div class="xl:mt-3">
+    <div class="xl:mt-3 mt-2">
       <slot />
     </div>
   </div>
