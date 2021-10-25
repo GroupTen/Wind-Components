@@ -67,10 +67,10 @@
           <div class="h-full flex flex-col bg-white shadow-xl overflow-y-auto">
             <header
               v-if="title"
-              class="z-10 p-4 md:px-6 md:pt-6 md:pb-2 bg-primary-900 flex"
+              class="z-10 p-4 md:px-6 md:pt-6 md:pb-2 bg-primary-900"
             >
-              <div class="flex flex-1 items-start justify-between space-x-3">
-                <div class="space-y-1 w-11/12">
+              <div class="flex items-start justify-between space-x-3">
+                <div class="space-y-1 flex-1">
                   <h2 class="text-lg leading-7 font-bold text-white">
                     {{ title }}
                   </h2>
@@ -83,39 +83,39 @@
                   </p>
                 </div>
                 <slot name="headerActions"></slot>
-              </div>
-              <button
-                aria-label="Close panel"
-                class="
-                  text-gray-300
-                  hover:text-white
-                  transition
-                  ease-in-out
-                  duration-150
-                  ml-auto
-                  block
-                  md:hidden
-                "
-                @click="toggleOpen"
-              >
-                <!-- Heroicon name: x -->
-                <svg
-                  class="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                <button
+                  aria-label="Close panel"
+                  class="
+                    text-gray-300
+                    hover:text-white
+                    transition
+                    ease-in-out
+                    duration-150
+                    ml-auto
+                    block
+                    md:hidden
+                  "
+                  @click="toggleOpen"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+                  <!-- Heroicon name: x -->
+                  <svg
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
             </header>
-            <div class="relative flex-1 py-6">
+            <div class="relative flex-1 md:py-6">
               <slot name="content" />
             </div>
           </div>
