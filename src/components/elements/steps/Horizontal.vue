@@ -6,9 +6,9 @@
   <nav>
     <ul
       class="
-        border border-gray-300
+        border-2 border-primary-300
         rounded-md
-        divide-y divide-gray-300
+        divide-y divide-primary-300
         md:flex
         justify-around
         md:divide-y-0
@@ -23,15 +23,19 @@
         <!-- Current Step -->
         <div
           class="
-            px-6
+            px-2
             py-4
             flex
+            md:flex-col
+            lg:flex-row
             items-center
             text-sm
             leading-5
             font-medium
             space-x-4
-            text-gray-300
+            md:space-x-0
+            lg:space-x-4
+            text-primary-600
           "
         >
           <div
@@ -40,6 +44,7 @@
               flex-shrink-0
               w-10
               h-10
+              md:w-12 md:h-12
               flex
               items-center
               justify-center
@@ -68,29 +73,71 @@
           <div
             v-else
             :class="[
-              'flex-shrink-0 w-10 h-10 flex justify-center border-2 rounded-full',
-              {
-                'border-primary-600':
-                  step.status === 'current' || step.status === 'complete',
-              },
+              step.status === 'current' || step.status === 'complete'
+                ? 'flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex justify-center border-primary-600 rounded-full'
+                : 'flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex justify-center border-2 rounded-full border-primary-600',
             ]"
           >
             <p
               :class="[
-                (step.status === 'current' || step.status === 'complete') &&
-                  'text-primary-600',
-                'my-auto pt-2',
+                step.status === 'current'
+                  ? 'text-primary-900'
+                  : 'my-auto pt-2 text-primary-600',
               ]"
             >
-              0{{ index + 1 }}
+              <span
+                v-if="step.status === 'current'"
+                class="
+                  flex-shrink-0
+                  w-10
+                  h-10
+                  md:w-12 md:h-12
+                  flex
+                  items-center
+                  justify-center
+                  bg-primary-600
+                  rounded-full
+                  group-hover:bg-primary-800
+                  transition
+                  ease-in-out
+                  duration-150
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 md:h-6 md:w-6 text-white"
+                  fill="none"
+                  viewBox="0 0 22 22"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M12 4v16m8-8H4"
+                  /></svg
+              ></span>
+              <span v-else>0{{ index + 1 }}</span>
             </p>
           </div>
           <p
             :class="{
-              'text-primary-600':
-                step.status === 'current' || step.status === 'complete',
+              'text-primary-900': step.status === 'current',
             }"
-            class="text-sm leading-5 font-medium pr-8 my-auto"
+            class="
+              text-sm
+              leading-5
+              font-medium
+              lg:pr-8
+              my-auto
+              md:my-0
+              lg:my-auto
+              md:mt-2
+              lg:mt-auto
+              text-left
+              md:text-center
+              lg:text-left
+            "
           >
             <span>
               {{ step.name }}
@@ -98,7 +145,6 @@
             <span v-if="step.caption" class="block">{{ step.caption }}</span>
           </p>
         </div>
-
         <div
           :class="[
             'absolute top-0 right-0 h-full w-5 hidden md:block',
@@ -106,7 +152,7 @@
           ]"
         >
           <svg
-            class="h-full w-full text-gray-300"
+            class="h-full w-full text-primary-600"
             viewBox="0 0 22 80"
             fill="none"
             preserveAspectRatio="none"
