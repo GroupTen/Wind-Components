@@ -1,18 +1,12 @@
 <template>
   <button type="button" :class="classes" @click="analytics()">
-    <slot v-if="iconPosition === 'left'" name="icon"
+    <slot name="icon"
       ><component
         :is="svgComponent"
         if="svgComponent"
         class="mx-1 w-5 h-5 my-auto"
     /></slot>
     <slot />
-    <slot v-if="iconPosition === 'right'" name="icon"
-      ><component
-        :is="svgComponent"
-        if="svgComponent"
-        class="mx-1 w-5 h-5 my-auto"
-    /></slot>
   </button>
 </template>
 <script>
@@ -27,11 +21,6 @@ export default {
       type: [String, Array, Object],
       required: false,
       default: null,
-    },
-    iconPosition: {
-      type: String,
-      required: false,
-      default: 'left',
     },
   },
   computed: {
@@ -85,6 +74,14 @@ export default {
           action: this.$el.textContent,
           label: window.location.pathname,
         })
+
+        // segment analytics integration
+        if (window.analytics) {
+          window.analytics.track('Button Click', {
+            label: this.$el.textContent,
+            url: window.location.href,
+          })
+        }
       }
       if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
         // eslint-disable-next-line no-console
