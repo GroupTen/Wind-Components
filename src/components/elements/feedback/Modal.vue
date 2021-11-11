@@ -2,7 +2,7 @@
   <div :class="['fixed z-30 inset-0 overflow-y-auto', { hidden: isHidden }]">
     <div
       :class="[
-        'flex items-center justify-center min-h-screen p-6 text-center sm:block',
+        'flex items-center justify-center min-h-screen p-2 sm:p-6 text-center sm:block',
       ]"
     >
       <div
@@ -19,16 +19,15 @@
           ></div>
         </div>
       </div>
-
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span
       >&#8203;
       <div
         class="
-          align-bottom
           animate__animated animate__faster animate__zoomIn
           bg-white
           inline-block
-          p-6
+          p-4
+          sm:p-6
           rounded-lg
           shadow-xl
           sm:align-middle sm:my-8
@@ -66,15 +65,12 @@ export default {
       if (this.$store.state.settings.navExpanded == null) {
         return true
       }
-
       if (this.$store.state.settings.navExpanded === 'false') {
         return false
       }
-
       if (this.$store.state.settings.navExpanded === 'true') {
         return true
       }
-
       return this.$store.state.settings.navExpanded
     },
   },
