@@ -4,10 +4,8 @@
 
 <script>
 const classes = {
-  primary:
-    'loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-20 w-20',
-  button:
-    'loader ease-linear rounded-full border-2 border-t-2 border-gray-200 h-5 w-5',
+  primary: 'loader ease-linear rounded-full border-4 border-t-4 h-20 w-20',
+  button: 'loader ease-linear rounded-full border-2 border-t-2 h-5 w-5',
 }
 export default {
   props: {
@@ -27,7 +25,7 @@ export default {
 
 <style>
 .loader {
-  border-top-color: #5eabc4;
+  border-top-color: #5eabc4 !important;
   -webkit-animation: spinner 1.5s linear infinite;
   animation: spinner 1.5s linear infinite;
 }
