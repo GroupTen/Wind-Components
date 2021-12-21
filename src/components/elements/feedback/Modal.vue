@@ -36,6 +36,7 @@
           transition-all
           w-full
           md:w-auto
+          min-w-1/3
         "
         role="dialog"
         aria-modal="true"
