@@ -36,6 +36,7 @@
           transition-all
           w-full
           md:w-auto
+          lg:w-1/2
           min-w-1/3
         "
         role="dialog"
