@@ -36,9 +36,9 @@
           transition-all
           w-full
           md:w-auto
-          lg:w-1/2
           min-w-1/3
         "
+        :class="modalWidth ? modalWidth : ''"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-headline"
@@ -54,6 +54,11 @@ export default {
     canManuallyClose: {
       type: Boolean,
       default: true,
+      required: false,
+    },
+    modalWidth: {
+      type: String,
+      default: '',
       required: false,
     },
   },
