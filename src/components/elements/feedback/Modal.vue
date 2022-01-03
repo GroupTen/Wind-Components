@@ -36,7 +36,6 @@
           transition-all
           w-full
           md:w-auto
-          min-w-1/3
         "
         :class="modalWidth ? modalWidth : ''"
         role="dialog"
