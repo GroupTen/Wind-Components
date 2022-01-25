@@ -50,10 +50,15 @@ export default {
       required: false,
       default: '',
     },
+    defaultTab: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
-      currentTab: this.tabs[0].name,
+      currentTab: this.defaultTab ? this.defaultTab : this.tabs[0].name,
     }
   },
   watch: {
