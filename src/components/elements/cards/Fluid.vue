@@ -1,17 +1,15 @@
 <template>
   <div class="rounded-md shadow-md bg-white relative w-full">
-    <div v-if="thumbnail">
-      <img
-        v-if="thumbnail.includes('http')"
-        :src="thumbnail"
-        class="w-full rounded-t-md h-56"
-      />
-      <img
-        v-else
-        :src="$config.assetsURL + thumbnail"
-        class="w-full rounded-t-md h-56"
-      />
-    </div>
+    <div
+      v-if="thumbnail && !thumbnail.includes('http')"
+      class="w-full rounded-t-md h-56 bg-cover bg-center"
+      :style="{ backgroundImage: `url(${$config.assetsURL + thumbnail})` }"
+    ></div>
+    <div
+      v-else-if="thumbnail.includes('http')"
+      class="w-full rounded-t-md h-56 bg-cover bg-center"
+      :style="{ backgroundImage: `url(${thumbnail})` }"
+    ></div>
     <slot name="image"></slot>
     <div class="p-4">
       <div class="font-bold text-primary-900">{{ heading }}</div>
