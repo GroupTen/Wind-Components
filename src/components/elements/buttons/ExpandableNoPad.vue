@@ -1,7 +1,10 @@
 <template>
   <div @click="analytics()">
-    <div class="relative" @click="isExpanded = !isExpanded">
+    <!-- If the button is expandable, then the click function will toggle state -->
+    <div class="relative" @click="expandable && (isExpanded = !isExpanded)">
+      <!-- Arrow to Collapse/Expand -->
       <svg
+        v-if="expandable"
         :class="{
           'text-gray-400 rotate-90': isExpanded,
           'text-gray-300': !isExpanded,
@@ -25,6 +28,11 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    expandable: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
   data() {
