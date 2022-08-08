@@ -15,28 +15,14 @@
       >
         <div class="absolute inset-0 opacity-75 -ml-8">
           <div
-            class="animate__animated animate__fadeIn bg-gray-800 w-full h-full"
+            class="animate__animated animate__fadeIn animate__slideInUp animate__fast bg-gray-800 w-full h-full"
           ></div>
         </div>
       </div>
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span
       >&#8203;
       <div
-        class="
-          animate__animated animate__faster animate__zoomIn
-          bg-white
-          inline-block
-          p-4
-          sm:p-6
-          rounded-lg
-          shadow-xl
-          sm:align-middle sm:my-8
-          text-left
-          transform
-          transition-all
-          w-full
-          md:w-auto
-        "
+        class="bg-white inline-block p-4 sm:p-6 rounded-lg shadow-xl sm:align-middle sm:my-8 text-left transform transition-all w-full md:w-auto animate__slideInUp animate__fast"
         :class="modalWidth ? modalWidth : ''"
         role="dialog"
         aria-modal="true"
