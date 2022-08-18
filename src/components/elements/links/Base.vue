@@ -55,8 +55,15 @@ export default {
     },
     svgComponent() {
       if (this.icon) {
-        return `https://cdn.wellcertified.com/static/icons/${this.icon}.svg?inline`
+        const { data } = this.$axios.get(
+          `https://cdn.wellcertified.com/static/icons/${this.icon}.svg`,
+          {
+            crossDomain: true,
+          }
+        )
+        return data
       }
+
       return ''
     },
   },

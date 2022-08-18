@@ -54,14 +54,23 @@ export default {
       return this.$wind.buttons.base[this.type]
     },
     svgComponent() {
-      if (Array.isArray(this.icon)) {
-        if (this.icon[0]) {
-          return `https://cdn.wellcertified.com/static/icons/${this.icon[0]}.svg?inline`
-        } else {
-          return ''
+      if (this.icon) {
+        let icon = ''
+        if (Array.isArray(this.icon)) {
+          if (this.icon[0]) {
+            icon = this.icon[0]
+          } else {
+            icon = this.icon
+          }
+
+          const { data } = this.$axios.get(
+            `https://cdn.wellcertified.com/static/icons/${icon}.svg`,
+            {
+              crossDomain: true,
+            }
+          )
+          return data
         }
-      } else if (this.icon) {
-        return `https://cdn.wellcertified.com/static/icons/${this.icon}.svg?inline`
       }
       return ''
     },
