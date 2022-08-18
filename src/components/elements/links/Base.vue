@@ -54,7 +54,10 @@ export default {
       return this.$wind.links.base[this.type]
     },
     svgComponent() {
-      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+      if (this.icon) {
+        return `https://cdn.wellcertified.com/static/icons/${this.icon}.svg?inline`
+      }
+      return ''
     },
   },
   methods: {

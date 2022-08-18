@@ -33,9 +33,15 @@ export default {
     },
     svgComponent() {
       if (Array.isArray(this.icon)) {
-        return this.icon[0] && require(`@/static/icons/${this.icon}.svg?inline`)
+        if (this.icon[0]) {
+          return `https://cdn.wellcertified.com/static/icons/${this.icon[0]}.svg?inline`
+        } else {
+          return ''
+        }
+      } else if (this.icon) {
+        return `https://cdn.wellcertified.com/static/icons/${this.icon}.svg?inline`
       }
-      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+      return ''
     },
   },
 }
