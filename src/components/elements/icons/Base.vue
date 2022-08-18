@@ -1,8 +1,8 @@
 <template>
-  <component
-    :is="svgComponent"
-    if="svgComponent"
+  <span
+    v-show="svgComponent"
     :class="[type == null ? 'mx-1 w-5 h-5 my-auto' : classes]"
+    v-html="svgComponent"
   />
 </template>
 <script>
@@ -19,6 +19,11 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      svgComponent: '',
+    }
+  },
   computed: {
     classes() {
       if (Array.isArray(this.type)) {
@@ -31,26 +36,33 @@ export default {
 
       return this.$wind.icons.base[this.type]
     },
-    svgComponent() {
+  },
+  created() {
+    this.loadSvg()
+  },
+  methods: {
+    async loadSvg() {
       if (this.icon) {
         let icon = ''
         if (Array.isArray(this.icon)) {
           if (this.icon[0]) {
             icon = this.icon[0]
-          } else {
-            icon = this.icon
           }
-
-          const { data } = this.$axios.get(
-            `https://cdn.wellcertified.com/static/icons/${icon}.svg`,
-            {
-              crossDomain: true,
-            }
-          )
-          return data
+        } else {
+          icon = this.icon
         }
+
+        await this.$axios
+          .get(`https://cdn.wellcertified.com/static/icons/${icon}.svg`, {
+            crossDomain: true,
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+            },
+          })
+          .then(({ data }) => {
+            this.svgComponent = data
+          })
       }
-      return ''
     },
   },
 }

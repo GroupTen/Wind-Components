@@ -2,20 +2,20 @@
   <div @click="analytics()">
     <nuxt-link v-if="target === ''" :to="link" :class="classes">
       <slot v-if="iconPosition === 'left'" name="icon"
-        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
+        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
       /></slot>
       <slot />
       <slot v-if="iconPosition === 'right'" name="icon"
-        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
+        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
       /></slot>
     </nuxt-link>
     <a v-else :href="link" target="_blank" :class="classes">
       <slot v-if="iconPosition === 'left'" name="icon"
-        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
+        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
       /></slot>
       <slot />
       <slot v-if="iconPosition === 'right'" name="icon"
-        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
+        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
       /></slot>
     </a>
   </div>
@@ -49,25 +49,43 @@ export default {
       default: '',
     },
   },
+  data() {
+    return {
+      svgComponent: '',
+    }
+  },
   computed: {
     classes() {
       return this.$wind.links.base[this.type]
     },
-    svgComponent() {
-      if (this.icon) {
-        const { data } = this.$axios.get(
-          `https://cdn.wellcertified.com/static/icons/${this.icon}.svg`,
-          {
-            crossDomain: true,
-          }
-        )
-        return data
-      }
-
-      return ''
-    },
+  },
+  created() {
+    this.loadSvg()
   },
   methods: {
+    async loadSvg() {
+      if (this.icon) {
+        let icon = ''
+        if (Array.isArray(this.icon)) {
+          if (this.icon[0]) {
+            icon = this.icon[0]
+          }
+        } else {
+          icon = this.icon
+        }
+
+        await this.$axios
+          .get(`https://cdn.wellcertified.com/static/icons/${icon}.svg`, {
+            crossDomain: true,
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+            },
+          })
+          .then(({ data }) => {
+            this.svgComponent = data
+          })
+      }
+    },
     analytics() {
       if (
         process.client &&
