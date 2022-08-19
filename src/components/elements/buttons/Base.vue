@@ -64,7 +64,7 @@ export default {
     this.loadSvg()
   },
   methods: {
-    async loadSvg() {
+    loadSvg() {
       if (this.icon) {
         let icon = ''
         if (Array.isArray(this.icon)) {
@@ -75,7 +75,7 @@ export default {
           icon = this.icon
         }
 
-        await this.$axios
+        this.$axios
           .get(`https://cdn.wellcertified.com/static/icons/${icon}.svg`, {
             crossDomain: true,
             headers: {
