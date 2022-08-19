@@ -8,28 +8,14 @@
         ></div>
         <nuxt-link
           v-if="!step.link.includes('http')"
+          :id="`step-${index}-${step.name.toLowerCase()}`"
           :to="step.link"
           class="relative flex items-start space-x-4 group focus:outline-none"
         >
           <div class="h-9 flex items-center">
             <span
               v-if="step.status === 'complete'"
-              class="
-                relative
-                z-10
-                w-8
-                h-8
-                flex
-                items-center
-                justify-center
-                bg-primary-600
-                rounded-full
-                group-hover:bg-primary-800
-                group-focus:bg-primary-800
-                transition
-                ease-in-out
-                duration-150
-              "
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
             >
               <svg
                 class="w-5 h-5 text-white"
@@ -46,22 +32,7 @@
             </span>
             <span
               v-else-if="step.status === 'current'"
-              class="
-                relative
-                z-10
-                w-8
-                h-8
-                flex
-                items-center
-                justify-center
-                bg-primary-600
-                rounded-full
-                group-hover:bg-primary-800
-                group-focus:bg-primary-800
-                transition
-                ease-in-out
-                duration-150
-              "
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,36 +49,10 @@
             </span>
             <span
               v-else
-              class="
-                relative
-                z-10
-                w-8
-                h-8
-                flex
-                items-center
-                justify-center
-                bg-white
-                border-2 border-gray-300
-                rounded-full
-                group-hover:border-gray-400
-                group-focus:border-gray-400
-                transition
-                ease-in-out
-                duration-150
-              "
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400 group-focus:border-gray-400 transition ease-in-out duration-150"
             >
               <span
-                class="
-                  h-2.5
-                  w-2.5
-                  bg-transparent
-                  rounded-full
-                  group-hover:bg-gray-300
-                  group-focus:bg-gray-300
-                  transition
-                  ease-in-out
-                  duration-150
-                "
+                class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300 group-focus:bg-gray-300 transition ease-in-out duration-150"
               ></span>
             </span>
           </div>
@@ -135,6 +80,7 @@
         </nuxt-link>
         <a
           v-else
+          :id="`step-${index}-${step.name.toLowerCase()}`"
           :href="step.link"
           target="_blank"
           class="relative flex items-start space-x-4 group focus:outline-none"
@@ -142,22 +88,7 @@
           <div class="h-9 flex items-center">
             <span
               v-if="step.status === 'complete'"
-              class="
-                relative
-                z-10
-                w-8
-                h-8
-                flex
-                items-center
-                justify-center
-                bg-primary-600
-                rounded-full
-                group-hover:bg-primary-800
-                group-focus:bg-primary-800
-                transition
-                ease-in-out
-                duration-150
-              "
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
             >
               <svg
                 class="w-5 h-5 text-white"
@@ -174,22 +105,7 @@
             </span>
             <span
               v-else-if="step.status === 'current'"
-              class="
-                relative
-                z-10
-                w-8
-                h-8
-                flex
-                items-center
-                justify-center
-                bg-primary-600
-                rounded-full
-                group-hover:bg-primary-800
-                group-focus:bg-primary-800
-                transition
-                ease-in-out
-                duration-150
-              "
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -206,36 +122,10 @@
             </span>
             <span
               v-else
-              class="
-                relative
-                z-10
-                w-8
-                h-8
-                flex
-                items-center
-                justify-center
-                bg-white
-                border-2 border-gray-300
-                rounded-full
-                group-hover:border-gray-400
-                group-focus:border-gray-400
-                transition
-                ease-in-out
-                duration-150
-              "
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400 group-focus:border-gray-400 transition ease-in-out duration-150"
             >
               <span
-                class="
-                  h-2.5
-                  w-2.5
-                  bg-transparent
-                  rounded-full
-                  group-hover:bg-gray-300
-                  group-focus:bg-gray-300
-                  transition
-                  ease-in-out
-                  duration-150
-                "
+                class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300 group-focus:bg-gray-300 transition ease-in-out duration-150"
               ></span>
             </span>
           </div>
