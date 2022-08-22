@@ -1,5 +1,5 @@
 <template>
-  <span
+  <div
     v-show="svgComponent"
     :class="[type == null ? 'mx-1 w-5 h-5 my-auto' : classes]"
     v-html="svgComponent"
@@ -55,6 +55,7 @@ export default {
         this.$axios
           .get(`https://cdn.wellcertified.com/static/icons/${icon}.svg`, {
             crossDomain: true,
+
             headers: {
               'Access-Control-Allow-Origin': '*',
             },
