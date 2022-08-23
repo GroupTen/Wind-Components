@@ -1,11 +1,11 @@
 <template>
   <button type="button" :class="classes" @click="analytics()">
     <slot name="icon">
-      <span
+      <div
         v-show="svgComponent"
         class="mx-1 w-5 h-5 my-auto"
         v-html="svgComponent"
-      ></span>
+      ></div>
     </slot>
     <slot />
   </button>
