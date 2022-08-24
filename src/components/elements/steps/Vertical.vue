@@ -8,7 +8,7 @@
         ></div>
         <nuxt-link
           v-if="!step.link.includes('http')"
-          :id="`step-${index}-${step.name.toLowerCase()}`"
+          :id="step.name.toLowerCase().replace(/\s+/g, '-')"
           :to="step.link"
           class="relative flex items-start space-x-4 group focus:outline-none"
         >
@@ -80,7 +80,7 @@
         </nuxt-link>
         <a
           v-else
-          :id="`step-${index}-${step.name.toLowerCase()}`"
+          :id="step.name.toLowerCase().replace(/\s+/g, '-')"
           :href="step.link"
           target="_blank"
           class="relative flex items-start space-x-4 group focus:outline-none"
