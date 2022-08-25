@@ -1,12 +1,11 @@
 <template>
   <button type="button" :class="classes" @click="analytics()">
-    <slot name="icon">
-      <div
-        v-show="svgComponent"
+    <slot name="icon"
+      ><component
+        :is="svgComponent"
+        if="svgComponent"
         class="mx-1 w-5 h-5 my-auto"
-        v-html="svgComponent"
-      ></div>
-    </slot>
+    /></slot>
     <slot />
   </button>
 </template>
@@ -23,11 +22,6 @@ export default {
       required: false,
       default: null,
     },
-  },
-  data() {
-    return {
-      svgComponent: '',
-    }
   },
   computed: {
     classes() {
@@ -59,34 +53,14 @@ export default {
 
       return this.$wind.buttons.base[this.type]
     },
-  },
-  created() {
-    this.loadSvg()
+    svgComponent() {
+      if (Array.isArray(this.icon)) {
+        return this.icon[0] && require(`@/static/icons/${this.icon}.svg?inline`)
+      }
+      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+    },
   },
   methods: {
-    loadSvg() {
-      if (this.icon) {
-        let icon = ''
-        if (Array.isArray(this.icon)) {
-          if (this.icon[0]) {
-            icon = this.icon[0]
-          }
-        } else {
-          icon = this.icon
-        }
-
-        this.$axios
-          .get(`https://cdn.wellcertified.com/static/icons/${icon}.svg`, {
-            crossDomain: true,
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-            },
-          })
-          .then(({ data }) => {
-            this.svgComponent = data
-          })
-      }
-    },
     analytics() {
       if (
         process.client &&
