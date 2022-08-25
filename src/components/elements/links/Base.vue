@@ -2,20 +2,20 @@
   <div @click="analytics()">
     <nuxt-link v-if="target === ''" :to="link" :class="classes">
       <slot v-if="iconPosition === 'left'" name="icon"
-        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
+        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
       /></slot>
       <slot />
       <slot v-if="iconPosition === 'right'" name="icon"
-        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
+        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
       /></slot>
     </nuxt-link>
     <a v-else :href="link" target="_blank" :class="classes">
       <slot v-if="iconPosition === 'left'" name="icon"
-        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
+        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
       /></slot>
       <slot />
       <slot v-if="iconPosition === 'right'" name="icon"
-        ><span v-show="svgComponent" class="mx-1 w-5 h-5" v-html="svgComponent"
+        ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
       /></slot>
     </a>
   </div>
@@ -49,43 +49,15 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {
-      svgComponent: '',
-    }
-  },
   computed: {
     classes() {
       return this.$wind.links.base[this.type]
     },
-  },
-  created() {
-    this.loadSvg()
+    svgComponent() {
+      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+    },
   },
   methods: {
-    loadSvg() {
-      if (this.icon) {
-        let icon = ''
-        if (Array.isArray(this.icon)) {
-          if (this.icon[0]) {
-            icon = this.icon[0]
-          }
-        } else {
-          icon = this.icon
-        }
-
-        this.$axios
-          .get(`https://cdn.wellcertified.com/static/icons/${icon}.svg`, {
-            crossDomain: true,
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-            },
-          })
-          .then(({ data }) => {
-            this.svgComponent = data
-          })
-      }
-    },
     analytics() {
       if (
         process.client &&
