@@ -5,11 +5,13 @@
         v-if="thumbnail.includes('http')"
         :src="thumbnail"
         class="w-full rounded-t-md"
+        :class="imageHeight"
       />
       <img
         v-else
         :src="$config.assetsURL + thumbnail"
         class="w-full rounded-t-md"
+        :class="imageHeight"
       />
     </div>
     <slot name="image"></slot>
@@ -50,6 +52,11 @@ export default {
       default: null,
     },
     description: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    imageHeight: {
       type: String,
       required: false,
       default: null,
