@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="classes" @click="analytics()">
+  <button :type="buttonType" :class="classes" @click="analytics()">
     <slot name="icon"
       ><component
         :is="svgComponent"
@@ -12,6 +12,11 @@
 <script>
 export default {
   props: {
+    buttonType: {
+      type: String,
+      required: false,
+      default: 'button',
+    },
     type: {
       type: [String, Array, Object],
       required: false,
