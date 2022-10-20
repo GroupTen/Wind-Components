@@ -47,7 +47,7 @@
               :class="[
                 step.status === 'current'
                   ? 'text-primary-900'
-                  : 'my-auto pt-2 text-primary-600',
+                  : 'my-auto text-primary-600',
               ]"
             >
               <span
