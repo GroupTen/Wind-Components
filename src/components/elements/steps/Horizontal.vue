@@ -5,14 +5,7 @@
 -->
   <nav>
     <ul
-      class="
-        border-2 border-primary-300
-        rounded-md
-        divide-y divide-primary-300
-        md:flex
-        justify-around
-        md:divide-y-0
-      "
+      class="border-2 border-primary-300 rounded-md divide-y divide-primary-300 md:flex justify-around md:divide-y-0"
     >
       <li
         v-for="(step, index) in steps"
@@ -22,39 +15,11 @@
       >
         <!-- Current Step -->
         <div
-          class="
-            px-2
-            py-4
-            flex
-            md:flex-col
-            lg:flex-row
-            items-center
-            text-sm
-            leading-5
-            font-medium
-            space-x-4
-            md:space-x-0
-            lg:space-x-4
-            text-primary-600
-          "
+          class="px-2 py-4 flex md:flex-col lg:flex-row items-center text-sm leading-5 font-medium space-x-4 md:space-x-0 lg:space-x-4 text-primary-600"
         >
           <div
             v-if="step.status === 'complete'"
-            class="
-              flex-shrink-0
-              w-10
-              h-10
-              md:w-12 md:h-12
-              flex
-              items-center
-              justify-center
-              bg-primary-600
-              rounded-full
-              group-hover:bg-primary-800
-              transition
-              ease-in-out
-              duration-150
-            "
+            class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -78,7 +43,7 @@
                 : 'flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex justify-center border-2 rounded-full border-primary-600',
             ]"
           >
-            <p
+            <span
               :class="[
                 step.status === 'current'
                   ? 'text-primary-900'
@@ -87,25 +52,12 @@
             >
               <span
                 v-if="step.status === 'current'"
-                class="
-                  flex-shrink-0
-                  w-10
-                  h-10
-                  md:w-12 md:h-12
-                  flex
-                  items-center
-                  justify-center
-                  bg-primary-600
-                  rounded-full
-                  group-hover:bg-primary-800
-                  transition
-                  ease-in-out
-                  duration-150
-                "
+                class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
+                :style="step.status === 'current' ? 'paddingRight: 2px' : null"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 md:h-6 md:w-6 text-white"
+                  class="h-4 w-4 text-white"
                   fill="none"
                   viewBox="0 0 22 22"
                   stroke="currentColor"
@@ -118,26 +70,13 @@
                   /></svg
               ></span>
               <span v-else>0{{ index + 1 }}</span>
-            </p>
+            </span>
           </div>
           <p
             :class="{
               'text-primary-900': step.status === 'current',
             }"
-            class="
-              text-sm
-              leading-5
-              font-medium
-              lg:pr-8
-              my-auto
-              md:my-0
-              lg:my-auto
-              md:mt-2
-              lg:mt-auto
-              text-left
-              md:text-center
-              lg:text-left
-            "
+            class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto md:mt-2 lg:mt-auto text-left md:text-center lg:text-left"
           >
             <span>
               {{ step.name }}
