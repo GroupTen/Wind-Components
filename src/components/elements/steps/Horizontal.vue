@@ -5,7 +5,7 @@
 -->
   <nav>
     <ul
-      class="border-2 border-primary-300 rounded-md divide-y divide-primary-300 md:flex justify-around md:divide-y-0"
+      class="list-none border-2 border-primary-300 rounded-md divide-y divide-primary-300 md:flex justify-around md:divide-y-0"
     >
       <li
         v-for="(step, index) in steps"
