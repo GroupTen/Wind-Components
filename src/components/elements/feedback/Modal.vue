@@ -1,9 +1,8 @@
 <template>
   <div :class="['fixed z-30 inset-0 overflow-y-auto', { hidden: isHidden }]">
     <div
-      :class="[
-        'flex items-center justify-center min-h-screen p-2 sm:p-6 text-center sm:block',
-      ]"
+      class="'flex items-center justify-center min-h-screen p-2 sm:p-6 text-center sm:block',"
+      :class="modalContainerClass ? modalContainerClass : ''"
     >
       <div
         class="fixed inset-0 transition-opacity"
@@ -42,6 +41,11 @@ export default {
       required: false,
     },
     modalWidth: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    modalContainerClass: {
       type: String,
       default: '',
       required: false,
