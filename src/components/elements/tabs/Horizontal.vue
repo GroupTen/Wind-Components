@@ -57,32 +57,32 @@ export default {
     tabs: {
       type: Array,
       default() {
-        return [];
+        return []
       },
     },
     value: {
       type: String,
       required: false,
-      default: "",
+      default: '',
     },
     defaultTab: {
       type: String,
       required: false,
-      default: "",
+      default: '',
     },
   },
   data() {
     return {
       currentTab: this.defaultTab ? this.defaultTab : this.tabs[0].name,
-    };
+    }
   },
   watch: {
     currentTab() {
-      this.$emit("input", this.currentTab);
+      this.$emit('input', this.currentTab)
     },
   },
   created() {
-    this.$emit("input", this.currentTab);
+    this.$emit('input', this.currentTab)
   },
-};
+}
 </script>
