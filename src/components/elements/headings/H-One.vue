@@ -2,7 +2,9 @@
   <div>
     <slot name="eyebrow"></slot>
     <div class="block">
-      <h1 class="mt-2 text-5xl leading-7 font-semibold">
+      <h1
+        class="font-semibold leading-7 lg:text-5xl md:text-4xl mt-2 sm:text-3xl"
+      >
         {{ heading }}
       </h1>
       <p v-if="subHeading" class="mt-3 text-base leading-6">
