@@ -19,7 +19,12 @@
         >
           <div
             v-if="step.status === 'complete'"
-            class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
+            :class="
+              pillSize === 'large'
+                ? 'w-10 h-10 md:w-12 md:h-12'
+                : 'w-6 h-6 md:w-8 md:h-8'
+            "
+            class="flex-shrink-0 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -39,8 +44,12 @@
             v-else
             :class="[
               step.status === 'current' || step.status === 'complete'
-                ? 'flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex justify-center border-primary-600 rounded-full'
-                : 'flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex justify-center border-2 rounded-full border-primary-600',
+                ? 'flex-shrink-0  flex justify-center border-primary-600 rounded-full'
+                : 'flex-shrink-0 flex justify-center border-2 rounded-full border-primary-600',
+
+              pillSize === 'large'
+                ? 'w-10 h-10 md:w-12 md:h-12'
+                : 'w-6 h-6 md:w-8 md:h-8',
             ]"
           >
             <span
@@ -52,7 +61,12 @@
             >
               <span
                 v-if="step.status === 'current'"
-                class="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
+                :class="
+                  pillSize === 'large'
+                    ? 'w-10 h-10 md:w-12 md:h-12'
+                    : 'w-6 h-6 md:w-8 md:h-8'
+                "
+                class="flex-shrink-0 flex items-center justify-center bg-primary-600 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
                 :style="step.status === 'current' ? 'paddingRight: 2px' : null"
               >
                 <svg
@@ -75,8 +89,9 @@
           <p
             :class="{
               'text-primary-900': step.status === 'current',
+              '!mb-5': pillSize === 'large',
             }"
-            class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto md:mt-2 lg:mt-auto text-left md:text-center lg:text-left"
+            class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto !md:mt-1 lg:mt-auto text-left md:text-center lg:text-left !mt-1"
           >
             <span>
               {{ step.name }}
@@ -116,6 +131,10 @@ export default {
       default() {
         return []
       },
+    },
+    pillSize: {
+      type: String,
+      default: 'large',
     },
   },
   methods: {
