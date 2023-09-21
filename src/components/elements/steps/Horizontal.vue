@@ -89,7 +89,8 @@
           <p
             :class="{
               'text-primary-900': step.status === 'current',
-              '!mb-5': pillSize === 'large',
+              '!mb-5 !pr-0': pillSize === 'large',
+              '!pr-0': pillSize !== 'large',
             }"
             class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto !md:mt-1 lg:mt-auto text-left md:text-center lg:text-left !mt-1"
           >
