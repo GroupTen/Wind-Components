@@ -1,5 +1,5 @@
 <template>
-  <div @click="analytics()">
+  <div :class="{ 'w-full': truncate }" @click="analytics()">
     <nuxt-link v-if="target === ''" :to="link" :class="classes">
       <slot v-if="iconPosition === 'left'" name="icon"
         ><component :is="svgComponent" if="svgComponent" class="mx-1 w-5 h-5"
@@ -48,10 +48,20 @@ export default {
       required: false,
       default: '',
     },
+    truncate: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     classes() {
-      return this.$wind.links.base[this.type]
+      let classes = this.$wind.links.base[this.type]
+      if (this.truncate) {
+        classes = classes.replace('flex', 'block')
+        classes = `${classes} truncate`
+      }
+      return classes
     },
     svgComponent() {
       return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
