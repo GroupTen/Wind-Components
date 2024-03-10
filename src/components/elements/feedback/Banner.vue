@@ -3,7 +3,7 @@
     v-if="message"
     :class="['bg-warning-300  top-0 w-full', { hidden: !visible }]"
   >
-    <div class="text-sm max-w-screen-xl mx-auto py-1 px-3 sm:px-6 lg:px-8">
+    <div class="text-sm max-w-screen-xl mx-auto py-1 px-3">
       <div class="flex items-center mt-2">
         <div class="mr-2">
           <svg
@@ -24,13 +24,13 @@
         <div>
           <div class="text-[#855200]">Attention Needed</div>
           <div class="flex items-center">
-            <div class="text-[##625B5B]" v-html="message"></div>
-            <div v-if="routerText" class="text-[##625B5B]">
+            <div class="text-[#625B5B]" v-html="message"></div>
+            <div v-if="routerText" class="text-[#625B5B]">
               <router-link class="ml-1" type="light" :to="routerLink">{{
                 routerText
               }}</router-link>
             </div>
-            <div v-if="actionText" class="text-[##625B5B]">
+            <div v-if="actionText" class="text-[#625B5B]">
               <WButtonsBase
                 type="light"
                 @click.native="
