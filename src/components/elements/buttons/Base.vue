@@ -79,14 +79,6 @@ export default {
           action: this.$el.textContent,
           label: window.location.pathname,
         })
-
-        // segment analytics integration
-        if (window.analytics) {
-          window.analytics.track('Button Click', {
-            label: this.$el.textContent,
-            url: window.location.href,
-          })
-        }
       }
       if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
         // eslint-disable-next-line no-console
