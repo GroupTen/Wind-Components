@@ -24,23 +24,37 @@
         <div>
           <div class="text-[#855200]">Attention Needed</div>
           <div class="flex items-center">
-            <div class="text-[#625B5B]" v-html="message"></div>
-            <div v-if="routerText" class="text-[#625B5B]">
-              <router-link class="ml-1" type="light" :to="routerLink">{{
-                routerText
-              }}</router-link>
-            </div>
-            <div v-if="actionText" class="text-[#625B5B]">
-              <WButtonsBase
-                type="light"
-                @click.native="
-                  $store.dispatch(
-                    'notifications/setBannerActionTriggered',
-                    !actionStatus
-                  )
-                "
-                >{{ actionText }}</WButtonsBase
-              >
+            <div>
+              <span class="text-[#625B5B]" v-html="message"></span>
+              <span v-if="routerText" class="text-[#625B5B]">
+                <router-link
+                  v-if="!routerLink.includes('http')"
+                  class="ml-1"
+                  type="light"
+                  :to="routerLink"
+                  >{{ routerText }}</router-link
+                >
+                <a
+                  v-else
+                  class="ml-1"
+                  type="light"
+                  target="_blank"
+                  :href="routerLink"
+                  >{{ routerText }}</a
+                >
+              </span>
+              <span v-if="actionText" class="text-[#625B5B]">
+                <WButtonsBase
+                  type="light"
+                  @click.native="
+                    $store.dispatch(
+                      'notifications/setBannerActionTriggered',
+                      !actionStatus
+                    )
+                  "
+                  >{{ actionText }}</WButtonsBase
+                >
+              </span>
             </div>
             <div
               v-if="canDismiss"
