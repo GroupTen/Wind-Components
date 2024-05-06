@@ -4,7 +4,7 @@
     :class="['bg-warning-300  top-0 w-full', { hidden: !visible }]"
   >
     <div class="text-sm max-w-screen-xl mx-auto py-1 px-3">
-      <div class="flex items-center mt-2">
+      <div class="flex mt-2">
         <div class="mr-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +12,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-6 h-6 text-warning-700"
+            class="w-10 h-10 text-warning-700"
           >
             <path
               stroke-linecap="round"
@@ -22,7 +22,7 @@
           </svg>
         </div>
         <div>
-          <div class="text-[#855200]">Attention Needed</div>
+          <div class="text-base font-bold text-[#855200]">Attention Needed</div>
           <div class="flex items-center">
             <div>
               <span class="text-[#625B5B]" v-html="message"></span>
