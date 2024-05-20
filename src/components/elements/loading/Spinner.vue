@@ -25,7 +25,7 @@ export default {
 
 <style>
 .loader {
-  border-top-color: #5eabc4 !important;
+  border-top-color: #327db9 !important;
   -webkit-animation: spinner 1.5s linear infinite;
   animation: spinner 1.5s linear infinite;
 }
