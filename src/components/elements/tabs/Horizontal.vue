@@ -17,7 +17,7 @@
       </select>
     </div>
     <div class="hidden sm:block">
-      <div class="border-b border-gray-200">
+      <div class="border-b border-coolGray-100">
         <nav
           :class="$attrs.alignment != null ? $attrs.alignment : null"
           class="-mb-px flex px-5 lg:px-8"
