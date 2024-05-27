@@ -6,8 +6,8 @@
       <svg
         v-if="expandable"
         :class="{
-          'text-gray-400 rotate-90': isExpanded,
-          'text-gray-300': !isExpanded,
+          'text-coolGray-700 rotate-90': isExpanded,
+          'text-coolGray-300': !isExpanded,
         }"
         class="absolute right-0 h-5 w-5 transform mr-2 mt-2"
         viewBox="0 0 20 20"
