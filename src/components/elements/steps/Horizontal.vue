@@ -15,7 +15,7 @@
       >
         <!-- Current Step -->
         <div
-          class="px-2 py-4 flex md:flex-col lg:flex-row items-center text-sm leading-5 font-medium space-x-4 md:space-x-0 lg:space-x-4 text-primary-500"
+          class="px-2 py-4 flex md:flex-col lg:flex-row items-center text-sm leading-5 font-medium space-x-4 md:space-x-0 lg:space-x-4 text-primary-600"
         >
           <div
             v-if="step.status === 'complete'"
@@ -24,7 +24,7 @@
                 ? 'w-10 h-10 md:w-12 md:h-12'
                 : 'w-6 h-6 md:w-8 md:h-8'
             "
-            class="flex-shrink-0 flex items-center justify-center bg-equity-500 rounded-full group-hover:bg-equity-500 transition ease-in-out duration-150"
+            class="flex-shrink-0 flex items-center justify-center bg-success-500 rounded-full group-hover:bg-success-500 transition ease-in-out duration-150"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -45,7 +45,7 @@
             :class="[
               step.status === 'current' || step.status === 'complete'
                 ? 'flex-shrink-0  flex justify-center border-primary-500 rounded-full'
-                : 'flex-shrink-0 flex justify-center border-2 rounded-full border-coolGray-100',
+                : 'flex-shrink-0 flex justify-center border-2 rounded-full border-coolGray-300',
 
               pillSize === 'large'
                 ? 'w-10 h-10 md:w-12 md:h-12'
@@ -55,8 +55,8 @@
             <span
               :class="[
                 step.status === 'current'
-                  ? 'text-primary-900'
-                  : 'my-auto text-primary-500',
+                  ? 'text-primary-500'
+                  : 'my-auto text-coolgray-300',
               ]"
             >
               <span
@@ -83,16 +83,27 @@
                     d="M12 4v16m8-8H4"
                   /></svg
               ></span>
-              <span class="text-coolGray-300" v-else>0{{ index + 1 }}</span>
+              <span
+                :class="[
+                  step.status === 'current'
+                    ? 'text-primary-500'
+                    : step.status === 'complete'
+                    ? 'text-success-500'
+                    : 'text-coolGray-300',
+                  'text-xs leading-4 tracking-wide',
+                ]"
+                v-else
+                >0{{ index + 1 }}</span
+              >
             </span>
           </div>
           <div
             :class="{
-              'text-equity-900': step.status === 'current',
+              'text-primary-500': step.status === 'current',
               '!pr-0': pillSize === 'large',
               '!pr-0': pillSize !== 'large',
             }"
-            class="text-sm leading-5 text-primary-500 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto lg:mt-auto text-left md:text-center lg:text-left"
+            class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto lg:mt-auto text-left md:text-center lg:text-left"
           >
             <span
               :class="[
@@ -101,6 +112,7 @@
                   : step.status === 'complete'
                   ? 'text-success-500'
                   : 'text-coolGray-300',
+                'text-xs leading-4 font-semibold uppercase tracking-wide',
               ]"
             >
               {{ step.name }}

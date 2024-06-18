@@ -32,7 +32,7 @@
             </span>
             <span
               v-else-if="step.status === 'current'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-500 group-focus:bg-primary-500 transition ease-in-out duration-150"
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,15 @@
             </h3>
             <p
               v-if="step.description"
-              class="text-sm leading-5 text-primary-500 mt-2"
+              :class="[
+                step.status === 'current'
+                  ? 'text-primary-500'
+                  : step.status === 'complete'
+                  ? 'text-primary-500'
+                  : 'text-coolGray-300',
+                'text-sm leading-5 mt-2',
+              ]"
+              class=""
             >
               <!-- eslint-disable-next-line vue/no-v-html -->
               <span v-html="step.description"></span>
@@ -150,11 +158,22 @@
                   : step.status === 'complete'
                   ? 'text-success-500'
                   : 'text-coolGray-300',
-                'text-sm leading-5 mt-2',
+                'text-xs leading-4 font-semibold uppercase tracking-wide',
               ]"
+              class="text-sm leading-5 mt-2"
             >
               <!-- eslint-disable-next-line vue/no-v-html -->
-              <span v-html="step.description"></span>
+              <span
+                :class="[
+                  step.status === 'current'
+                    ? 'text-primary-500'
+                    : step.status === 'complete'
+                    ? 'text-success-500'
+                    : 'text-coolGray-300',
+                  'text-xs leading-4  tracking-wide',
+                ]"
+                v-html="step.description"
+              ></span>
             </p>
           </div>
         </a>
