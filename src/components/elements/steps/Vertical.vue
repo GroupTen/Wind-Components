@@ -15,7 +15,7 @@
           <div class="h-9 flex items-center">
             <span
               v-if="step.status === 'complete'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-success-500 rounded-full group-hover:bg-success-500 group-focus:bg-success-500 transition ease-in-out duration-150"
             >
               <svg
                 class="w-5 h-5 text-white"
@@ -32,7 +32,7 @@
             </span>
             <span
               v-else-if="step.status === 'current'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-500 group-focus:bg-primary-500 transition ease-in-out duration-150"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@
           <div class="h-9 flex items-center">
             <span
               v-if="step.status === 'complete'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-success-500 rounded-full group-hover:bg-success-500 group-focus:bg-success-500 transition ease-in-out duration-150"
             >
               <svg
                 class="w-5 h-5 text-white"
@@ -105,7 +105,7 @@
             </span>
             <span
               v-else-if="step.status === 'current'"
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 group-focus:bg-primary-800 transition ease-in-out duration-150"
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-500 group-focus:bg-primary-500 transition ease-in-out duration-150"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -122,10 +122,10 @@
             </span>
             <span
               v-else
-              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-coolGray-100 group-focus:border-coolGray-100 transition ease-in-out duration-150"
+              class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-coolGray-300 rounded-full group-hover:border-coolGray-100 group-focus:border-coolGray-100 transition ease-in-out duration-150"
             >
               <span
-                class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300 group-focus:bg-gray-300 transition ease-in-out duration-150"
+                class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-coolGray-300 group-focus:bg-coolGray-300 transition ease-in-out duration-150"
               ></span>
             </span>
           </div>
@@ -135,7 +135,7 @@
                 step.status === 'current'
                   ? 'text-primary-500'
                   : step.status === 'complete'
-                  ? 'text-primary-500'
+                  ? 'text-success-500'
                   : 'text-coolGray-300',
                 'text-xs leading-4 font-semibold uppercase tracking-wide',
               ]"
@@ -144,7 +144,14 @@
             </h3>
             <p
               v-if="step.description"
-              class="text-sm leading-5 text-primary-500 mt-2"
+              :class="[
+                step.status === 'current'
+                  ? 'text-primary-500'
+                  : step.status === 'complete'
+                  ? 'text-success-500'
+                  : 'text-coolGray-300',
+                'text-sm leading-5 mt-2',
+              ]"
             >
               <!-- eslint-disable-next-line vue/no-v-html -->
               <span v-html="step.description"></span>
