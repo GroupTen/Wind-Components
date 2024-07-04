@@ -117,7 +117,19 @@
             >
               {{ step.name }}
             </span>
-            <span v-if="step.caption" class="block">{{ step.caption }}</span>
+            <span
+              v-if="step.caption"
+              class="block"
+              :class="[
+                step.status === 'current'
+                  ? 'text-primary-500'
+                  : step.status === 'complete'
+                  ? 'text-success-500'
+                  : 'text-coolGray-300',
+                'text-xs leading-4 font-semibold uppercase tracking-wide',
+              ]"
+              >{{ step.caption }}</span
+            >
           </div>
         </div>
         <div
