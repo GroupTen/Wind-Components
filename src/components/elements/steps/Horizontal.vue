@@ -83,22 +83,54 @@
                     d="M12 4v16m8-8H4"
                   /></svg
               ></span>
-              <span v-else>0{{ index + 1 }}</span>
+              <span
+                :class="[
+                  step.status === 'current'
+                    ? 'text-primary-500'
+                    : step.status === 'complete'
+                    ? 'text-success-500'
+                    : 'text-coolGray-300',
+                  'text-xs leading-4 tracking-wide',
+                ]"
+                v-else
+                >0{{ index + 1 }}</span
+              >
             </span>
           </div>
-          <p
+          <div
             :class="{
               'text-primary-500': step.status === 'current',
               '!mb-5 !pr-0': pillSize === 'large',
               '!pr-0': pillSize !== 'large',
             }"
-            class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto !md:mt-1 lg:mt-auto text-left md:text-center lg:text-left !mt-1"
+            class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto lg:mt-auto text-left md:text-center lg:text-left"
           >
-            <span>
+            <span
+              :class="[
+                step.status === 'current'
+                  ? 'text-primary-500'
+                  : step.status === 'complete'
+                  ? 'text-success-500'
+                  : 'text-coolGray-300',
+                'text-xs leading-4 font-semibold uppercase tracking-wide',
+              ]"
+            >
               {{ step.name }}
             </span>
-            <span v-if="step.caption" class="block">{{ step.caption }}</span>
-          </p>
+            <span
+              v-if="step.caption"
+              class="block"
+              :class="[
+                step.status === 'current'
+                  ? 'text-primary-500'
+                  : step.status === 'complete'
+                  ? 'text-success-500'
+                  : 'text-coolGray-300',
+                'text-xs leading-4 font-semibold uppercase tracking-wide',
+              ]"
+              >{{ step.caption }}</span
+            >
+          </div>
         </div>
         <div
           :class="[
