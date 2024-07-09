@@ -21,22 +21,25 @@ export default {
   },
   computed: {
     classes() {
+      const wind = this.$wind();
       if (Array.isArray(this.type)) {
-        return this.$wind.icons.base[this.type[0]]
+        return wind.icons.base[this.type[0]];
       }
 
-      if (typeof this.type === 'object') {
-        return this.$wind.icons.base[Object.keys(this.type)[0]]
+      if (typeof this.type === "object") {
+        return wind.icons.base[Object.keys(this.type)[0]];
       }
 
-      return this.$wind.icons.base[this.type]
+      return wind.icons.base[this.type];
     },
     svgComponent() {
       if (Array.isArray(this.icon)) {
-        return this.icon[0] && require(`@/static/icons/${this.icon}.svg?inline`)
+        return (
+          this.icon[0] && require(`@/static/icons/${this.icon}.svg?inline`)
+        );
       }
-      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`);
     },
   },
-}
+};
 </script>

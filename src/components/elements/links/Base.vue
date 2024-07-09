@@ -26,7 +26,7 @@ export default {
     type: {
       type: String,
       required: false,
-      default: 'primary',
+      default: "primary",
     },
     icon: {
       type: String,
@@ -36,17 +36,17 @@ export default {
     iconPosition: {
       type: String,
       required: false,
-      default: 'left',
+      default: "left",
     },
     link: {
       type: String,
       required: false,
-      default: '#',
+      default: "#",
     },
     target: {
       type: String,
       required: false,
-      default: '',
+      default: "",
     },
     truncate: {
       type: Boolean,
@@ -56,15 +56,16 @@ export default {
   },
   computed: {
     classes() {
-      let classes = this.$wind.links.base[this.type]
+      const wind = this.$wind();
+      let classes = wind.links.base[this.type];
       if (this.truncate) {
-        classes = classes.replace('flex', 'block')
-        classes = `${classes} truncate`
+        classes = classes.replace("flex", "block");
+        classes = `${classes} truncate`;
       }
-      return classes
+      return classes;
     },
     svgComponent() {
-      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`)
+      return this.icon && require(`@/static/icons/${this.icon}.svg?inline`);
     },
   },
   methods: {
@@ -74,24 +75,24 @@ export default {
         this?.$wind?.analytics &&
         this.$wind.analytics === true
       ) {
-        window.dataLayer = window.dataLayer || []
+        window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: 'windEvent',
-          category: 'Link click',
+          event: "windEvent",
+          category: "Link click",
           action: this.$el.textContent,
           label: window.location.pathname,
-        })
+        });
       }
       if (process.client && this?.$wind?.debug && this.$wind.debug === true) {
         // eslint-disable-next-line no-console
         console.log({
-          event: 'windEvent',
-          category: 'Link click',
+          event: "windEvent",
+          category: "Link click",
           action: this.$el.textContent,
           label: window.location.pathname,
-        })
+        });
       }
     },
   },
-}
+};
 </script>
