@@ -62,7 +62,7 @@
                 step.status === 'current'
                   ? 'text-primary-500'
                   : step.status === 'complete'
-                  ? 'text-primary-500'
+                  ? 'text-success-500'
                   : 'text-coolGray-300',
                 'text-xs leading-4 font-semibold uppercase tracking-wide',
               ]"
@@ -75,11 +75,10 @@
                 step.status === 'current'
                   ? 'text-primary-500'
                   : step.status === 'complete'
-                  ? 'text-primary-500'
+                  ? 'text-success-500'
                   : 'text-coolGray-300',
                 'text-sm leading-5 mt-2',
               ]"
-              class=""
             >
               <!-- eslint-disable-next-line vue/no-v-html -->
               <span v-html="step.description"></span>

@@ -5,7 +5,7 @@
 -->
   <nav>
     <ul
-      class="list-none border-2 border-coolGray-100 rounded-md divide-y divide-coolGray-100 md:flex justify-around md:divide-y-0"
+      class="list-none border-2 border-coolGray-100 rounded-md divide-y divide-red-500 md:flex justify-around md:divide-y-0"
     >
       <li
         v-for="(step, index) in steps"
@@ -15,7 +15,7 @@
       >
         <!-- Current Step -->
         <div
-          class="px-2 py-4 flex md:flex-col lg:flex-row items-center text-sm leading-5 font-medium space-x-4 md:space-x-0 lg:space-x-4 text-primary-600"
+          class="px-2 py-4 flex md:flex-col lg:flex-row items-center text-sm leading-5 font-medium space-x-4 md:space-x-0 lg:space-x-4 text-coolGray-300"
         >
           <div
             v-if="step.status === 'complete'"
@@ -24,7 +24,7 @@
                 ? 'w-10 h-10 md:w-12 md:h-12'
                 : 'w-6 h-6 md:w-8 md:h-8'
             "
-            class="flex-shrink-0 flex items-center justify-center bg-success-500 rounded-full group-hover:bg-success-500 transition ease-in-out duration-150"
+            class="flex-shrink-0 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -45,7 +45,7 @@
             :class="[
               step.status === 'current' || step.status === 'complete'
                 ? 'flex-shrink-0  flex justify-center border-primary-500 rounded-full'
-                : 'flex-shrink-0 flex justify-center border-2 rounded-full border-coolGray-300',
+                : 'flex-shrink-0 flex justify-center border-2 rounded-full border-coolGray-100',
 
               pillSize === 'large'
                 ? 'w-10 h-10 md:w-12 md:h-12'
@@ -56,7 +56,7 @@
               :class="[
                 step.status === 'current'
                   ? 'text-primary-500'
-                  : 'my-auto text-coolgray-300',
+                  : 'my-auto text-coolGray-300',
               ]"
             >
               <span
@@ -66,7 +66,7 @@
                     ? 'w-10 h-10 md:w-12 md:h-12'
                     : 'w-6 h-6 md:w-8 md:h-8'
                 "
-                class="flex-shrink-0 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-500 transition ease-in-out duration-150"
+                class="flex-shrink-0 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
                 :style="step.status === 'current' ? 'paddingRight: 2px' : null"
               >
                 <svg
@@ -100,7 +100,7 @@
           <div
             :class="{
               'text-primary-500': step.status === 'current',
-              '!pr-0': pillSize === 'large',
+              '!mb-5 !pr-0': pillSize === 'large',
               '!pr-0': pillSize !== 'large',
             }"
             class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto lg:mt-auto text-left md:text-center lg:text-left"

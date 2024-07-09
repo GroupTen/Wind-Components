@@ -1,5 +1,7 @@
 <template>
-  <div class="rounded-md shadow-md bg-white relative">
+  <div
+    class="rounded-md shadow-md bg-white border border-coolGray-100 relative"
+  >
     <div v-if="thumbnail">
       <img
         v-if="thumbnail.includes('http')"
@@ -16,11 +18,11 @@
     </div>
     <slot name="image"></slot>
     <div class="p-4">
-      <div class="font-bold text-primary-900">{{ heading }}</div>
+      <div class="font-bold text-coolGray-600">{{ heading }}</div>
       <div class="text-primary-600 font-medium">
         <slot name="subHeading"></slot>
       </div>
-      <div class="mt-4 text-sm text-primary-900">
+      <div class="mt-4 text-sm text-coolGray-600">
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-html="description"></span>
       </div>
