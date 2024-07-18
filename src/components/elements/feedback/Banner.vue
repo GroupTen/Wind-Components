@@ -1,9 +1,14 @@
 <template>
   <div
     v-if="message"
-    :class="['bg-warning-300  top-0 w-full', { hidden: !visible }]"
+    :class="[
+      'bg-warning-25 border border-warning-150  top-0 w-full',
+      { hidden: !visible },
+    ]"
   >
-    <div class="text-sm max-w-screen-xl mx-auto py-1 px-3">
+    <div
+      class="text-sm max-w-screen-xl flex justify-between items-center mx-auto py-1 px-3"
+    >
       <div class="flex mt-2">
         <div class="mr-2">
           <svg
@@ -12,7 +17,7 @@
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-10 h-10 text-warning-700"
+            class="w-10 h-10 text-warning-500"
           >
             <path
               stroke-linecap="round"
@@ -21,12 +26,14 @@
             />
           </svg>
         </div>
-        <div>
-          <div class="text-base font-bold text-[#855200]">Attention Needed</div>
-          <div class="flex items-center">
+        <div class="flex items-center space-x-2">
+          <div class="text-base font-bold text-warning-500">
+            Attention Needed
+          </div>
+          <div class="flex items-center justify-between">
             <div>
-              <span class="text-[#625B5B]" v-html="message"></span>
-              <span v-if="routerText" class="text-[#625B5B]">
+              <span class="text-warning-500" v-html="message"></span>
+              <span v-if="routerText" class="text-warning-500">
                 <router-link
                   v-if="!routerLink.includes('http')"
                   class="ml-1"
@@ -43,7 +50,7 @@
                   >{{ routerText }}</a
                 >
               </span>
-              <span v-if="actionText" class="text-[#625B5B]">
+              <span v-if="actionText" class="text-warning-500">
                 <WButtonsBase
                   type="light"
                   @click.native="
@@ -56,28 +63,27 @@
                 >
               </span>
             </div>
-            <div
-              v-if="canDismiss"
-              class="order-2 -mt-2 flex-shrink-0 sm:order-3 sm:ml-3"
-            >
-              <WButtonsBase
-                type="neutral"
-                icon="x-circle"
-                @click.native="
-                  $store.dispatch('notifications/toggleBannerVisibility')
-                "
-              />
-            </div>
           </div>
           <slot />
         </div>
+      </div>
+      <div
+        v-if="canDismiss"
+        class="order-2 -mt-2 flex-shrink-0 sm:order-3 sm:ml-3"
+      >
+        <WButtonsBase
+          type="neutral"
+          icon="x"
+          @click.native="
+            $store.dispatch('notifications/toggleBannerVisibility')
+          "
+        />
       </div>
     </div>
   </div>
 </template>
 <script>
 import { mapState } from 'vuex'
-
 export default {
   props: {
     canDismiss: {

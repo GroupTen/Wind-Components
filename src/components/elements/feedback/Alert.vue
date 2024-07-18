@@ -8,15 +8,18 @@
   >
     <div
       :class="[
-        'rounded-md p-4 max-w-screen-sm mx-auto',
-        { 'bg-red-50': type === 'error', 'bg-green-200': type === 'success' },
+        'rounded-md p-4 max-w-screen-sm mx-auto border',
+        {
+          'bg-danger-25 border-danger-150': type === 'error',
+          'bg-success-25 border-success-250': type === 'success',
+        },
       ]"
     >
       <div class="flex">
         <div class="flex-shrink-0">
           <svg
             v-if="type === 'error'"
-            class="h-5 w-5 text-red-400"
+            class="h-5 w-5 text-danger-800"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -28,7 +31,7 @@
           </svg>
           <svg
             v-if="type === 'success'"
-            class="h-5 w-5 text-green-400"
+            class="h-5 w-5 text-success-500"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -44,8 +47,8 @@
             :class="[
               'text-sm leading-5 font-medium ',
               {
-                'text-red-800': type === 'error',
-                'text-green-800': type === 'success',
+                'text-danger-800': type === 'error',
+                'text-success-500': type === 'success',
               },
             ]"
           >
