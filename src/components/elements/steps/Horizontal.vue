@@ -24,7 +24,7 @@
                 ? 'w-10 h-10 md:w-12 md:h-12'
                 : 'w-6 h-6 md:w-8 md:h-8'
             "
-            class="flex-shrink-0 flex items-center justify-center bg-primary-500 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
+            class="flex-shrink-0 flex items-center justify-center bg-success-500 rounded-full group-hover:bg-primary-800 transition ease-in-out duration-150"
           >
             <svg
               class="w-6 h-6 text-white"
@@ -100,7 +100,7 @@
           <div
             :class="{
               'text-primary-500': step.status === 'current',
-              '!mb-5 !pr-0': pillSize === 'large',
+              '!pr-0': pillSize === 'large',
               '!pr-0': pillSize !== 'large',
             }"
             class="text-sm leading-5 font-medium lg:pr-8 my-auto md:my-0 lg:my-auto lg:mt-auto text-left md:text-center lg:text-left"
