@@ -84,6 +84,7 @@
                   /></svg
               ></span>
               <span
+                v-else
                 :class="[
                   step.status === 'current'
                     ? 'text-primary-500'
@@ -92,7 +93,6 @@
                     : 'text-coolGray-300',
                   'text-xs leading-4 tracking-wide',
                 ]"
-                v-else
                 >0{{ index + 1 }}</span
               >
             </span>
