@@ -30,7 +30,10 @@
         <slot />
       </div>
     </div>
-    <div v-if="$slots.footer" class="p-4 w-full bottom-0">
+    <div
+      v-if="$slots.footer"
+      class="absolute p-4 w-full bottom-0"
+    >
       <slot name="footer"></slot>
     </div>
   </div>
