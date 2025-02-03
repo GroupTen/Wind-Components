@@ -5,13 +5,13 @@
   >
     <div
       class="w-full relative inline-block text-left"
-      @click="isActive = !isActive"
+      @click.stop="handleToggle"
     >
       <slot />
       <div
         :class="[
           'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg',
-          { hidden: !isActive },
+          { hidden: !dropdownActive },
         ]"
       >
         <div class="rounded-md bg-white shadow-xs z-50 relative">
@@ -26,9 +26,20 @@
               :key="`${text}-${index}`"
               :to="link"
               role="menuitem"
-              class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
-              >{{ text }}</nuxt-link
+              class="
+                block
+                px-4
+                py-2
+                text-sm
+                leading-5
+                text-gray-700
+                hover:bg-gray-100 hover:text-gray-900
+                focus:outline-none focus:bg-gray-100 focus:text-gray-900
+              "
+              @click="handleClose"
             >
+              {{ text }}
+            </nuxt-link>
             <slot name="customButtons" />
           </div>
         </div>
@@ -36,6 +47,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   props: {
@@ -45,13 +57,62 @@ export default {
         return {}
       },
     },
+    parentManaged: {
+      type: Boolean,
+      default: false,
+    },
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
+    dropdownId: {
+      type: [String, Number],
+      default: null,
+    },
   },
   data() {
     return {
-      isActive: false,
+      localIsActive: false,
     }
   },
+  computed: {
+    dropdownActive() {
+      return this.parentManaged ? this.isActive : this.localIsActive
+    },
+  },
+  mounted() {
+    document.addEventListener('click', this.handleClickOutside)
+    document.addEventListener('keydown', this.handleEscKey)
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleClickOutside)
+    document.removeEventListener('keydown', this.handleEscKey)
+  },
   methods: {
+    handleToggle() {
+      if (this.parentManaged) {
+        this.$emit('toggle', this.dropdownId)
+      } else {
+        this.localIsActive = !this.localIsActive
+      }
+    },
+    handleClose() {
+      if (this.parentManaged) {
+        this.$emit('toggle', this.dropdownId)
+      } else {
+        this.localIsActive = false
+      }
+    },
+    handleClickOutside(event) {
+      if (this.dropdownActive && !this.$el.contains(event.target)) {
+        this.handleClose()
+      }
+    },
+    handleEscKey(event) {
+      if (event.key === 'Escape' && this.dropdownActive) {
+        this.handleClose()
+      }
+    },
     analytics() {
       if (
         process.client &&
