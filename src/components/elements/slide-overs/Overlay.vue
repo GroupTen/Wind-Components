@@ -5,9 +5,12 @@
         class="animate__animated animate__fadeIn animate__fast absolute inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
       ></div>
       <section
-        class="animate__animated animate__slideInRight animate__fast absolute inset-y-0 right-0 md:pl-10 max-w-full flex"
+        class="animate__animated animate__slideInRight animate__fast absolute inset-y-0 right-0 md:pl-10 max-w-full flex !pl-0"
       >
-        <div class="relative w-screen md:max-w-2xl lg:max-w-3xl xl:max-w-5xl">
+        <div
+          class="relative w-screen md:max-w-2xl lg:max-w-3xl xl:max-w-5xl"
+          :class="wrapperClass"
+        >
           <div
             class="hidden md:flex -ml-8 absolute animate__animated animate__delay-1s animate__fast animate__fadeIn left-0 pr-2 sm:-ml-10 sm:pr-4 top-0"
           >
@@ -102,19 +105,24 @@ export default {
       require: false,
       default: null,
     },
+    wrapperClass: {
+      type: String,
+      require: false,
+      default: "",
+    },
   },
   data() {
     return {
       open: false,
-    }
+    };
   },
   methods: {
     toggleOpen() {
-      this.open = !this.open
+      this.open = !this.open;
       if (!this.open) {
-        this.$emit('dismiss')
+        this.$emit("dismiss");
       }
     },
   },
-}
+};
 </script>
