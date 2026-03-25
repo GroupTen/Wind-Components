@@ -2,21 +2,53 @@
   <div v-if="open" class="fixed inset-0 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
       <div
-        class="animate__animated animate__fadeIn animate__fast absolute inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
+        class="
+          animate__animated animate__fadeIn animate__fast
+          absolute
+          inset-0
+          bg-gray-800 bg-opacity-75
+          transition-opacity
+        "
       ></div>
       <section
-        class="animate__animated animate__slideInRight animate__fast absolute inset-y-0 right-0 md:pl-10 max-w-full flex !pl-0"
+        class="
+          animate__animated animate__slideInRight animate__fast
+          absolute
+          inset-y-0
+          right-0
+          md:pl-10
+          max-w-full
+          flex
+          !pl-0
+        "
       >
         <div
           class="relative w-screen md:max-w-2xl lg:max-w-3xl xl:max-w-5xl"
           :class="wrapperClass"
         >
           <div
-            class="hidden md:flex -ml-8 absolute animate__animated animate__delay-1s animate__fast animate__fadeIn left-0 pr-2 sm:-ml-10 sm:pr-4 top-0"
+            class="
+              hidden
+              md:flex
+              -ml-8
+              absolute
+              animate__animated animate__delay-1s animate__fast animate__fadeIn
+              left-0
+              pr-2
+              sm:-ml-10 sm:pr-4
+              top-0
+            "
           >
             <button
               aria-label="Close panel"
-              class="mt-5 text-gray-300 hover:text-white transition ease-in-out duration-150"
+              class="
+                mt-5
+                text-gray-300
+                hover:text-white
+                transition
+                ease-in-out
+                duration-150
+              "
               @click="toggleOpen"
             >
               <!-- Heroicon name: x -->
@@ -57,7 +89,16 @@
                 <slot name="headerActions"></slot>
                 <button
                   aria-label="Close panel"
-                  class="text-gray-300 hover:text-white transition ease-in-out duration-150 ml-auto block md:hidden"
+                  class="
+                    text-gray-300
+                    hover:text-white
+                    transition
+                    ease-in-out
+                    duration-150
+                    ml-auto
+                    block
+                    md:hidden
+                  "
                   @click="toggleOpen"
                 >
                   <!-- Heroicon name: x -->
@@ -108,21 +149,29 @@ export default {
     wrapperClass: {
       type: String,
       require: false,
-      default: "",
+      default: '',
     },
   },
   data() {
     return {
       open: false,
-    };
+    }
   },
   methods: {
+    setZendeskPosition(position) {
+      if (window && window.__iwbiZendeskSetPosition) {
+        window.__iwbiZendeskSetPosition(position)
+      }
+    },
     toggleOpen() {
-      this.open = !this.open;
+      this.open = !this.open
       if (!this.open) {
-        this.$emit("dismiss");
+        this.$emit('dismiss')
+        this.setZendeskPosition('right')
+      } else {
+        this.setZendeskPosition('left')
       }
     },
   },
-};
+}
 </script>
